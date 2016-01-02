@@ -17,7 +17,7 @@ module.exports = function(ig){
 	}
  
 	var handleAuth = function(req, res) {
-		ig.auth_user(req.query.code, redirectUri, function(err, result) {
+		ig.authorize_user(req.query.code, redirectUri, function(err, result) {
 			if (err) {
 				console.log(err.body)
 				res.send("Didn't work")
