@@ -12,6 +12,7 @@ var igAuth = require('./routes/auth/instagram')(ig)
 
 var app = express()
 
+app.set('trust proxy')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
