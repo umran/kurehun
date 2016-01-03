@@ -1,9 +1,7 @@
-var config = {}
-
-config.instagram = {
-	clientId: '',
-	redirectUri: '',
-	clientSecret: ''
+module.exports = {
+	instagram: {
+		clientId: 'CLIENT_ID',
+		redirectUri: 'REDIRECT _URI,
+		clientSecret: 'CLIENT_SECRET'
+	}
 }
-
-module.exports = config
