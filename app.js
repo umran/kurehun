@@ -1,3 +1,4 @@
+var config = require('config')
 var express = require('express')
 var path = require('path')
 var favicon = require('serve-favicon')
@@ -6,9 +7,18 @@ var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 var ig = require('instagram-node').instagram()
 
+var igClientId = config.ig.clientId,
+    igRedirectUri = config.ig.redirectUri,
+    igClientSecret = config.ig.clientSecret
+
+ig.use({
+	client_id: igClientId,
+	client_secret: igClientSecret
+})
+
 var index = require('./routes/index')
 var users = require('./routes/users')
-var igAuth = require('./routes/auth/instagram')(ig)
+var igAuth = require('./routes/auth/instagram')(ig, igRedirectUri)
 
 var app = express()
 

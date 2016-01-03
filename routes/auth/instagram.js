@@ -1,16 +1,7 @@
 var express = require('express')
 var router = express.Router()
-var config = require('../../config').instagram
 
-module.exports = function(ig){
-	var clientId = config.clientId,
-	    redirectUri = config.redirectUri,
-	    clientSecret = config.clientSecret
-
-	ig.use({
-		client_id: clientId,
-		client_secret: clientSecret
-	})
+module.exports = function(ig, redirectUri){
 
 	var authUser = function(req, res) {
 		res.redirect(ig.get_authorization_url(redirectUri, { scope: ['likes'], state: 'a state' }))
