@@ -10,7 +10,7 @@ var bodyParser = require('body-parser')
 var igConf = config.ig
 
 //initialize instagram api
-var ig = require('instagram-node').instagram()
+var ig = require('instagram-node').instagram({enforce_signed_requests: true})
 
 ig.use({
 	client_id: igConf.clientId,

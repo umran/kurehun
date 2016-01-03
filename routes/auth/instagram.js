@@ -4,7 +4,7 @@ var router = express.Router()
 module.exports = function(ig, redirectUri){
 
 	var authUser = function(req, res) {
-		res.redirect(ig.get_authorization_url(redirectUri, { scope: ['likes'], state: 'a state' }))
+		res.redirect(ig.get_authorization_url(redirectUri, { scope: ['public_content', 'follower_list', 'comments', 'relationships', 'likes'], state: 'a state' }))
 	}
  
 	var handleAuth = function(req, res) {
