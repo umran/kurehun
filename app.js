@@ -5,20 +5,21 @@ var favicon = require('serve-favicon')
 var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
+
+//api settings, instagrams, flickrs, youtubes, soundclouds, etc
+var igConf = config.ig
+
+//initialize instagram api
 var ig = require('instagram-node').instagram()
 
-var igClientId = config.ig.clientId,
-    igRedirectUri = config.ig.redirectUri,
-    igClientSecret = config.ig.clientSecret
-
 ig.use({
-	client_id: igClientId,
-	client_secret: igClientSecret
+	client_id: igConf.clientId,
+	client_secret: igConf.clientSecret
 })
 
 var index = require('./routes/index')
 var users = require('./routes/users')
-var igAuth = require('./routes/auth/instagram')(ig, igRedirectUri)
+var igAuth = require('./routes/auth/instagram')(ig, igConf.redirectUri)
 
 var app = express()
 
