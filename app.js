@@ -5,8 +5,13 @@ var favicon = require('serve-favicon')
 var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
+var session = require('express-session')
+var RedisStore = require('connect-redis')(session);
 
-//api settings, instagrams, flickrs, youtubes, soundclouds, etc
+//load redis settings
+var redisConf = config.redis
+
+//load api settings, instagrams, flickrs, youtubes, soundclouds, etc
 var igConf = config.api.ig
 
 //initialize instagram api
@@ -24,6 +29,18 @@ var igAuth = require('./routes/auth/instagram')(ig, igConf.redirectUri)
 var app = express()
 
 app.set('trust proxy')
+
+// setup secure sessions
+app.use(session({
+	secret: config.sessionSecret,
+	resave: false,
+	saveUninitialized: false,
+	cookie: {secure: true},
+	store: new RedisStore({
+		host: redisConf.host,
+		port: redisConf.port
+	})
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
