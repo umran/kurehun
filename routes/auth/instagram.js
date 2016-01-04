@@ -4,10 +4,22 @@ var router = express.Router()
 module.exports = function(ig, redirectUri){
 
 	var authUser = function(req, res) {
-		res.redirect(ig.get_authorization_url(redirectUri, { scope: ['public_content', 'follower_list', 'comments', 'relationships', 'likes'], state: 'a state' }))
+		if(!req.session.ig_access_token){
+			res.redirect(ig.get_authorization_url(redirectUri, { scope: ['public_content', 'follower_list', 'comments', 'relationships', 'likes'], state: 'a state' }))
+			return
+		}
+		
+		res.redirect(redirectUri)
 	}
  
 	var handleAuth = function(req, res) {
+	
+		if(req.session.ig_access_token){
+			console.log('Access token already set in session, no need to authenticate again')
+			res.send('User Authenticated')
+			return
+		}
+	
 		ig.authorize_user(req.query.code, redirectUri, function(err, result) {
 			if (err) {
 				console.log(err.body)
