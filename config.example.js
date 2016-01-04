@@ -3,8 +3,13 @@ module.exports = {
 	sessionSecret: 'SESSION_SECRET',
 	
 	redis: {
+		
 		host: '127.0.0.1',
-		port: 6379
+		port: 6379,
+		
+		db: {
+			sessions: 0
+		}
 	},
 	
 	api: {

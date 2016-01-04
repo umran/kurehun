@@ -38,7 +38,8 @@ app.use(session({
 	cookie: {secure: true},
 	store: new RedisStore({
 		host: redisConf.host,
-		port: redisConf.port
+		port: redisConf.port,
+		db: redisConf.db.sessions
 	})
 }))
 
