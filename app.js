@@ -7,10 +7,10 @@ var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 
 //api settings, instagrams, flickrs, youtubes, soundclouds, etc
-var igConf = config.ig
+var igConf = config.api.ig
 
 //initialize instagram api
-var ig = require('instagram-node').instagram({enforce_signed_requests: true})
+var ig = require('./api/instagram').instagram({enforce_signed_requests: true})
 
 ig.use({
 	client_id: igConf.clientId,
