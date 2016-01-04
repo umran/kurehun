@@ -11,10 +11,12 @@ module.exports = function(ig, redirectUri){
 		ig.authorize_user(req.query.code, redirectUri, function(err, result) {
 			if (err) {
 				console.log(err.body)
-				res.send("Didn't work")
+				res.send('Authentication Failed')
 			} else {
+				//set access token in session
+				req.session.ig_access_token = result.access_token
 				console.log('Yay! Access token is ' + result.access_token)
-				res.send('You made it!!')
+				res.send('User Authenticated')
 			}
 		})
 	}
