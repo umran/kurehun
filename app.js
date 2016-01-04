@@ -28,7 +28,7 @@ var igAuth = require('./routes/auth/instagram')(ig, igConf.redirectUri)
 
 var app = express()
 
-app.set('trust proxy')
+app.set('trust proxy', 1)
 
 // setup secure sessions
 app.use(session({
