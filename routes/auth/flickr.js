@@ -11,7 +11,7 @@ module.exports = function(fk, fkConf){
 			var oauth = new OAuth("https://www.flickr.com/services/oauth/request_token", "https://www.flickr.com/services/oauth/access_token", fkConf.clientId, fkConf.clientSecret, "1.0A", fkConf.redirectUri, "HMAC-SHA1");
 			oauth.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret,  results){
 				if(err){
-					console.log(err)
+					console.log(err + ' here')
 					return
 				}
 				oauth.getOAuthAccessToken(oauth_token, oauth_token_secret, function(err, oauth_access_token, oauth_access_token_secret, results){
