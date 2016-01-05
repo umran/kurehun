@@ -10,8 +10,8 @@ module.exports = function(fkConf){
 	    consumerSecret: fkConf.clientSecret,
 	    callbackURL: fkConf.redirectUri
 	  },
-	  function(token, tokenSecret, profile) {
-		
+	  function(token, tokenSecret, profile, done) {
+		done(null, token)
 	  }
 	))
 
