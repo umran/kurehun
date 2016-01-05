@@ -16,15 +16,12 @@ module.exports = function(fkConf){
 	  }
 	));
 
-	var handleAuth = function(req, res) {
-		
-	}
-
-	router.get('/', passport.authenticate('flickr'));
+	router.get('/', passport.authenticate('flickr'), function(req, res){
+	});
 
 	router.get('/status', passport.authenticate('flickr', { session: false }), function(req, res) {
 		// Successful authentication, redirect home.
-		console.log('what?')
+		console.log(req.session)
 	});
 
 	return router
