@@ -25,17 +25,12 @@ ig.use({
 })
 
 //initialize flickr api
-var fk = require("flickrapi"),
-    fkOptions = {
-          api_key: fkConf.clientId,
-          secret: fkConf.clientSecret,
-          callback: fkConf.redirectUri
-    }
+var fk = require("flickrapi")
 
 var index = require('./routes/index')
 var users = require('./routes/users')
 var igAuth = require('./routes/auth/instagram')(ig, igConf.redirectUri)
-var fkAuth = require('./routes/auth/flickr')(fk, fkOptions)
+var fkAuth = require('./routes/auth/flickr')(fk, fkConf)
 
 var app = express()
 

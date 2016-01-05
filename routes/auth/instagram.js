@@ -24,7 +24,7 @@ module.exports = function(ig, redirectUri){
 				//set access token in session
 				req.session.ig_access_token = result.access_token
 				console.log('Yay! Access token is ' + result.access_token)
-				res.send('User Authenticated')
+				res.send('Instagram Authenticated')
 			}
 		})
 	}
