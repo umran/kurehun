@@ -13,7 +13,9 @@ module.exports = function(fkConf){
 	    callbackURL: fkConf.redirectUri
 	  },
 	  function(token, tokenSecret, profile) {
-	    flow.emit('ok', token)
+	    flow.on('ready', function(){
+	    	flow.emit('ok', token)
+	    })
 	  }
 	))
 
@@ -22,6 +24,7 @@ module.exports = function(fkConf){
 
 	router.get('/status', passport.authenticate('flickr', { session: false }), function(req, res) {
 		// Successful authentication, redirect home.
+		flow.emit('ready')
 		flow.on('ok', function(token){
 			res.send(token)
 		})
