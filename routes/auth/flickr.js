@@ -1,42 +1,35 @@
 var express = require('express')
 var router = express.Router()
-var OAuth = require("oauth").OAuth;
+var auth = require('social-oauth-client');
 
 module.exports = function(fk, fkConf){
+
+	var flickr = new auth.Flickr({'CONSUMER_KEY': fkConf.clientId, 'CONSUMER_SECRET': fkConf.clientSecret, 'REDIRECT_URL': fkConf.redirectUri});
 
 	var authUser = function(req, res){
 	
 		if(!req.session.fk_access_token){
-			//Do OAuth
-			var oauth = new OAuth("https://www.flickr.com/services/oauth/request_token", "https://www.flickr.com/services/oauth/access_token", fkConf.clientId, fkConf.clientSecret, "1.0A", fkConf.redirectUri, "HMAC-SHA1");
-			oauth.getOAuthRequestToken(function(err, oauth_token, oauth_token_secret,  results){
-				if(err){
-					console.log(err + ' here')
-					return
-				}
-				oauth.getOAuthAccessToken(oauth_token, oauth_token_secret, function(err, oauth_access_token, oauth_access_token_secret, results){
-					if(err){
-						console.log(err)
-						return
-					}
-					console.log('Yay! Flickr Access Token is '+ oauth_access_token)
-					req.session.fk_access_token = oauth_access_token
-				})
+			
+			var url = flickr.getAuthorizeUrl().then(function(o){
+				res.redirect(o.url)
+			}, function(err) {
+				res.send(err)
 			})
 			
 			return
 		}
 		
 		console.log('Access token already set in session, no need to authenticate again')
-		res.send('User Authenticated')
+		res.send('Flickr Authenticated')
 	}
  
 	var handleAuth = function(req, res) {
-		if(req.session.fk_access_token){
-			res.send('Flickr Authenticated')
-			return
-		}
-		res.send('Flickr still not authenticated for some reason')
+		flickr.callback(req, res).then(function(user) {
+			// oauth token & user basic info will be shown 
+			res.send(user)
+		}, function(err) {
+			res.send(err)
+		})
 	
 	}
 
