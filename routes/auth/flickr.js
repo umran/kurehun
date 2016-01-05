@@ -3,7 +3,7 @@ var router = express.Router()
 var passport = require('passport')
 var FlickrStrategy = require('passport-flickr').Strategy
 var EventEmitter = require('events').EventEmitter
-var flow = new Eventemitter()
+var flow = new EventEmitter()
 
 module.exports = function(fkConf){
 
