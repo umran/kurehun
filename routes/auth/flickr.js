@@ -4,7 +4,7 @@ var auth = require('social-oauth-client');
 
 module.exports = function(fk, fkConf){
 
-	var flickr = new auth.Flickr({"CONSUMER_KEY": fkConf.clientId, "CONSUMER_SECRET": fkConf.clientSecret, "REDIRECT_URL": fkConf.redirectUri});
+	var flickr = new auth.Flickr({"CONSUMER_KEY": "8bb6b5626d269dd7d8553de9f5db6281", "CONSUMER_SECRET": "57896e318a0d8498", "REDIRECT_URL": "https://kurehun.org/auth/flickr/status"});
 
 	var authUser = function(req, res){
 	
