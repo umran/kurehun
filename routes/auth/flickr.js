@@ -6,7 +6,13 @@ module.exports = function(fk, fkOptions){
 	var authUser = function(req, res){
 	
 		if(!req.session.fk_access_token){
-			fk.authenticate(fkOptions)
+			fk.authenticate(fkOptions, function(err, flickr){
+				if(err){
+					console.log(err)
+					return
+				}
+				console.log(flickr)
+			})
 			return
 		}
 		
