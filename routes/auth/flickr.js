@@ -4,12 +4,6 @@ var ExchangeTokens = require('../../api/flickr/src/auth/exchange')
 var Utils = require('../../api/flickr/src/utils')
 var EventEmitter = require("events").EventEmitter
 var flow = new EventEmitter()
-var fk = require('../../api/flickr/src/FlickrApi')
-var fkOptions = {
-    api_key: fkConf.clientId,
-    secret: fkConf.clientSecret,
-    callback: fkConf.redirectUri
-}
 
 module.exports = function(fkConf){
 	var authUser = function(req, res){
@@ -29,6 +23,13 @@ module.exports = function(fkConf){
 				
 				console.log('Yay! Access token is ' + options.access_token)
 				req.session.fk_access_token = options.access_token
+			}
+			
+			var fk = require('../../api/flickr/src/FlickrAPI')
+			var fkOptions = {
+			    api_key: fkConf.clientId,
+			    secret: fkConf.clientSecret,
+			    callback: fkConf.redirectUri
 			}
 		
 			fk.authenticate(fkOptions, res, function(err, options) {
