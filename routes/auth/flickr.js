@@ -13,7 +13,7 @@ module.exports = function(fk, fkOptions){
 					console.log('handler is being called')
 					fkOptions.exchange(req.query);
 				}
-			}
+			})
 			
 			return
 		}
