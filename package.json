@@ -13,7 +13,6 @@
     "connect-redis":"~3.0.1",
     "express": "~4.12.2",
     "express-session":"~1.12.1",
-    "flickrapi":"~0.3.36",
     "fwk": "1.0.x",
     "jade": "~1.9.2",
     "morgan": "~1.5.1",
