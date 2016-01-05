@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
-var ExchangeTokens = require("../../api/flickr/src/auth/exchange")
-var Utils = require("../../api/flickr/src/utils")
+var ExchangeTokens = require('../../api/flickr/src/auth/exchange')
+var Utils = require('../../api/flickr/src/utils')
 var EventEmitter = require("events").EventEmitter
 var flow = new EventEmitter()
 
