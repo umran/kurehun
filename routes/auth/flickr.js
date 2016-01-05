@@ -3,7 +3,7 @@ var router = express.Router()
 
 module.exports = function(fk, fkOptions){
 
-	var authUser = function(){
+	var authUser = function(req, res){
 	
 		if(!req.session.fk_access_token){
 			fk.authenticate(fkOptions)
