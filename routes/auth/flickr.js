@@ -11,16 +11,16 @@ module.exports = function(fkConf){
 	    callbackURL: fkConf.redirectUri
 	  },
 	  function(token, tokenSecret, profile) {
-	    
+		
 	  }
 	))
 
 	router.get('/', passport.authenticate('flickr'), function(req, res){
 	})
 
-	router.get('/status', passport.authenticate('flickr'), function(req, res) {
+	router.get('/status', passport.authenticate('flickr', {session: false}), function(req, res) {
 		// Successful authentication, redirect home.
-		res.send(req.session.passport)
+		res.send(req.session)
 	});
 
 	return router
