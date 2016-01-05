@@ -11,7 +11,7 @@ module.exports = function(ig, redirectUri){
 		
 		//Already Authenticated Case (Maybe redirect to logged in page?)
 		console.log('Access token already set in session, no need to authenticate again')
-		res.send('User Authenticated')
+		res.send('Instagram Authenticated')
 	}
  
 	var handleAuth = function(req, res) {

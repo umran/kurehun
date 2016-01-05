@@ -17,6 +17,10 @@
     "fwk": "1.0.x",
     "jade": "~1.9.2",
     "morgan": "~1.5.1",
-    "serve-favicon": "~2.2.0"
+    "serve-favicon": "~2.2.0",
+    "async": "~0.2.10",
+    "glob": "~3.2.6",
+    "progress": "1.1.4",
+    "request": "2.26.x"
   }
 }
