@@ -9,6 +9,9 @@ module.exports = function(fk, fkOptions){
 			
 			fk.authenticate(fkOptions, function(err, flickr) {
 				
+				if(err){
+					console.log(err)
+				}
 				
 			})
 			
