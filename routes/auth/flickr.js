@@ -24,10 +24,10 @@ module.exports = function(fkConf){
 
 	router.get('/status', passport.authenticate('flickr', { session: false }), function(req, res) {
 		// Successful authentication, redirect home.
-		flow.emit('ready')
 		flow.on('ok', function(token){
 			res.send(token)
 		})
+		flow.emit('ready')
 	});
 
 	return router
