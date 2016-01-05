@@ -14,9 +14,24 @@ module.exports = {
 	
 	api: {
 		
-		ig: {
+		instagram: {
 			clientId: 'CLIENT_ID',
-			redirectUri: 'REDIRECT_URI',
+			clientSecret: 'CLIENT_SECRET',
+			redirectUri: 'REDIRECT_URI'
+		}
+		
+		flickr: {
+			clientId: 'CLIENT_ID',
+			clientSecret: 'CLIENT_SECRET'
+		}
+		
+		soundcloud: {
+			clientId: 'CLIENT_ID',
+			clientSecret: 'CLIENT_SECRET'
+		}
+		
+		youtube: {
+			clientId: 'CLIENT_ID',
 			clientSecret: 'CLIENT_SECRET'
 		}
 	}

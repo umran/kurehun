@@ -9,16 +9,12 @@ module.exports = function(ig, redirectUri){
 			return
 		}
 		
-		res.redirect(redirectUri)
+		//Already Authenticated Case (Maybe redirect to logged in page?)
+		console.log('Access token already set in session, no need to authenticate again')
+		res.send('User Authenticated')
 	}
  
 	var handleAuth = function(req, res) {
-	
-		if(req.session.ig_access_token){
-			console.log('Access token already set in session, no need to authenticate again')
-			res.send('User Authenticated')
-			return
-		}
 	
 		ig.authorize_user(req.query.code, redirectUri, function(err, result) {
 			if (err) {
