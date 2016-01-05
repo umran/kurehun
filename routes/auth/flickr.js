@@ -9,10 +9,7 @@ module.exports = function(fk, fkOptions){
 			
 			fk.authenticate(fkOptions, function(err, flickr) {
 				
-				var handleAuth = function(req, res) {
-					console.log('handler is being called')
-					fkOptions.exchange(req.query);
-				}
+				
 			})
 			
 			return
@@ -20,6 +17,11 @@ module.exports = function(fk, fkOptions){
 		
 		console.log('Access token already set in session, no need to authenticate again')
 		res.send('Flickr Authenticated')
+	}
+
+	var handleAuth = function(req, res) {
+		console.log('handler is being called')
+		fkOptions.exchange(req.query)
 	}
 
 	router.get('/', authUser)
