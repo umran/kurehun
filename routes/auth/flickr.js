@@ -14,7 +14,7 @@ module.exports = function(fk, fkConf){
 					console.log(err)
 					return
 				}
-				oauth.getOauthAccessToken(oauth_token, oauth_token_secret, function(err, oauth_access_token, oauth_access_token_secret, results){
+				oauth.getOAuthAccessToken(oauth_token, oauth_token_secret, function(err, oauth_access_token, oauth_access_token_secret, results){
 					if(err){
 						console.log(err)
 						return
