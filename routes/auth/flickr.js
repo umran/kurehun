@@ -20,7 +20,7 @@ module.exports = function(fkConf){
 	router.get('/', passport.authenticate('flickr'))
 
 	router.get('/status', passport.authenticate('flickr', {session: false}), function(req, res) {
-		res.redirect('/')
+		res.send('Flickr Authenticated')
 	});
 
 	return router
