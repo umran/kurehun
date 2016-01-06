@@ -21,6 +21,7 @@ module.exports = function(fkConf){
 	))
 
 	router.get('/', passport.authenticate('flickr'), function(req, res){
+		if(req.session.fk_access_token){ return res.send('Flickr Authenticated') }
 	})
 
 	router.get('/status', passport.authenticate('flickr', {session: false}), function(req, res) {
