@@ -1,5 +1,10 @@
 var config = require('./config')
 var ig = require('./api/instagram').instagram()
+var fk = require('./api/flickr')
+var fkConfig {
+      api_key: config.api.fk.clientID,
+      secret: config.api.fk.clientSecret
+    }
 
 ig.use({
 	enforce_signed_requests: true,
@@ -17,3 +22,9 @@ ig.user_media_recent('250934756', function(err, data, remaining, limit) {
 	
 	console.log(data)
 })
+
+fkConfig.access_token = ''
+
+fk.authenticate(fkConfig, function(error, flickr) {
+  // we can now use "flickr" as our API object
+});
