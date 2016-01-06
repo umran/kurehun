@@ -2,8 +2,6 @@ var express = require('express')
 var router = express.Router()
 var passport = require('passport')
 var FlickrStrategy = require('passport-flickr').Strategy
-var EventEmitter = require('events').EventEmitter
-var flow = new EventEmitter()
 
 module.exports = function(fkConf){
 
@@ -13,24 +11,14 @@ module.exports = function(fkConf){
 	    callbackURL: fkConf.redirectUri
 	  },
 	  function(token, tokenSecret, profile, done) {
-	  	flow.on('ok', function(){
-	  		flow.emit('token', token)
-	  	})
-		done(null, token)
+		done()
 	  }
 	))
 
-	router.get('/', passport.authenticate('flickr'), function(req, res){
-		
-	})
+	router.get('/', passport.authenticate('flickr'))
 
 	router.get('/status', passport.authenticate('flickr', {session: false}), function(req, res) {
-		// Successful authentication, redirect home.
-		flow.on('token', function(token){
-			req.session.fk_access_token = token
-			res.redirect('/')
-		})
-		flow.emit('ok')
+		res.redirect('/')
 	});
 
 	return router
