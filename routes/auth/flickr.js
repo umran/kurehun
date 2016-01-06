@@ -12,12 +12,18 @@ module.exports = function(fkConf){
 	    passReqToCallback: true
 	  },
 	  function(req, token, tokenSecret, profile, done) {
+		req.session.fk_access_token = token
 		console.log(token)
 		done()
 	  }
 	))
 
-	router.get('/', passport.authenticate('flickr'))
+	router.get('/', function(req, res){
+		if(req.session.fk_access_token) {
+			res.send('Flickr Authenticated')
+			return
+		}
+	}, passport.authenticate('flickr'))
 
 	router.get('/status', passport.authenticate('flickr', {session: false}), function(req, res) {
 		res.send('Flickr Authenticated')
