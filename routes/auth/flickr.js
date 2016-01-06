@@ -16,16 +16,11 @@ module.exports = function(fkConf){
 	  	flow.on('ok', function(){
 	  		flow.emit('token', token)
 	  	})
-		done(null, token)
+		done()
 	  }
 	))
 
-	router.get('/', function(req, res){
-		if(req.session.fk_access_token){ 
-			return res.send('Flickr Authenticated') 
-		}
-		
-		passport.authenticate('flickr')
+	router.get('/', passport.authenticate('flickr'), function(req, res){
 		
 	})
 
