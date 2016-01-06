@@ -12,7 +12,7 @@ module.exports = function(fkConf){
 	    passReqToCallback: true
 	  },
 	  function(req, token, tokenSecret, profile, done) {
-		console.log(req.query)
+		console.log(token)
 		done()
 	  }
 	))
