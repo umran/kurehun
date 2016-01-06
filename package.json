@@ -21,6 +21,6 @@
     "passport-flickr": "^0.2.0",
     "redis": "~2.4.2",
     "request": "2.26.x",
-    "serve-favicon": "~2.2.0",
+    "serve-favicon": "~2.2.0"
   }
 }
