@@ -28,7 +28,7 @@ module.exports = function(fkConf){
 		// Successful authentication, redirect home.
 		flow.on('token', function(token){
 			req.session.fk_access_token = token
-			res.send(req.session.fk_access_token)
+			res.redirect('/')
 		})
 		flow.emit('ok')
 	});
