@@ -14,13 +14,13 @@ module.exports = function(fkConf){
 	  function(req, token, tokenSecret, profile, done) {
 		req.session.fk_access_token = token
 		console.log(token)
-		done()
+		done(null, token)
 	  }
 	))
 
 	router.get('/', passport.authenticate('flickr'))
 
-	router.get('/status', passport.authenticate('flickr', {failureRedirect: '/login', session: false}), function(req, res) {
+	router.get('/status', passport.authenticate('flickr', {failureRedirect: '/', session: false}), function(req, res) {
 		res.send('Flickr Authenticated')
 	});
 
