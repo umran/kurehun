@@ -8,9 +8,11 @@ module.exports = function(fkConf){
 	passport.use(new FlickrStrategy({
 	    consumerKey: fkConf.clientId,
 	    consumerSecret: fkConf.clientSecret,
-	    callbackURL: fkConf.redirectUri
+	    callbackURL: fkConf.redirectUri,
+	    passReqToCallback: true
 	  },
-	  function(token, tokenSecret, profile, done) {
+	  function(req, token, tokenSecret, profile, done) {
+		console.log(req.query)
 		done()
 	  }
 	))
