@@ -1,8 +1,8 @@
 var config = require('../config')
+var Flickr = require('../api/flickr').Flickr;
+
 var fk_access_token = '72157660869281453-33a860f63e3ef1b0'
 var user_id = '139026886@N05'
-
-var Flickr = require('flickr').Flickr;
 var fk = new Flickr(config.api.flickr.clientId, config.api.flickr.clientSecret, {"oauth_token": fk_access_token});
 
 var flickr_params = {
