@@ -8,7 +8,7 @@ module.exports = (function() {
   /**
    * First part of oauth: request a token
    */
-  var RequestTokenFunction = function(options, res, requestCompleted) {
+  var RequestTokenFunction = function(options, requestCompleted) {
     options = Utils.setAuthVals(options);
 
     var queryArguments = {
@@ -36,6 +36,8 @@ module.exports = (function() {
         requestCompleted("no response received");
       }
 
+      console.log(response);
+
       if(response.oauth_problem) {
         // Occasionally, this will fail.
         // Rerunning it then succeeds just fine.
@@ -44,8 +46,7 @@ module.exports = (function() {
       Object.keys(response).forEach(function(key) {
         options[key] = response[key];
       });
-      
-      new RequestAuthorization(options, res, requestCompleted);
+      new RequestAuthorization(options, requestCompleted);
     });
   };
 

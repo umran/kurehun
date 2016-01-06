@@ -13,7 +13,7 @@ module.exports = function(fkConf){
 	  },
 	  function(req, token, tokenSecret, profile, done) {
 		req.session.fk_access_token = token
-		console.log(token)
+		console.log(profile)
 		done(null, profile)
 	  }
 	))

@@ -59,24 +59,29 @@ module.exports = (function Flickr() {
   /**
    * Request an access token from Flickr
    */
-  var requestToken = function(options, res, callback) {
+  var requestToken = function(options, callback) {
     var receivedToken = function(err,body) {
       if(err) {
         return callback(err);
       }
-      
-      callback(false, body)
-      /*var response = Utils.parseRestResponse(body);
+      var response = Utils.parseRestResponse(body);
       options.user_id = response.user_nsid;
       options.access_token = response.oauth_token;
       options.access_token_secret = response.oauth_token_secret;
+      if (options.callback === "oob" && !options.silent) {
+        console.log("\n\nAdd the following variables to your environment:\n");
+        console.log("export FLICKR_USER_ID=\"" + options.user_id + "\"");
+        console.log("export FLICKR_ACCESS_TOKEN=\"" + options.access_token + "\"");
+        console.log("export FLICKR_ACCESS_TOKEN_SECRET=\"" + options.access_token_secret + "\"");
+        console.log();
+      }
       callback(false, {
         FLICKR_USER_ID: '"' + options.user_id + '"',
         FLICKR_ACCESS_TOKEN: '"' + options.access_token + '"',
         FLICKR_ACCESS_TOKEN_SECRET: '"' + options.access_token_secret + '"'
-      });*/
+      });
     };
-    new RequestTokenFunction(options, res, receivedToken);
+    new RequestTokenFunction(options, receivedToken);
   };
 
   /**
@@ -84,19 +89,44 @@ module.exports = (function Flickr() {
    * an app, obtaining authorization keys values if it
    * does not already have them.
    */
-  var authenticate = function(options, res, next) {
+  var authenticate = function(options, next) {
+    if(!options) {
+      process.nextTick(function(){
+        next(new Error("Please pass an valid Flickr API key and secret to the Flickr module.\n"+
+                       "Visit http://www.flickr.com/services/apps/create/apply to get one."));
+      });
+      return;
+    }
+
+    // out-of-browser authentication unless specified otherwise
+    if(!options.callback) { options.callback = "oob"; }
 
     // effect authentication
     checkToken(options, function(err, access) {
       var APIBuilder = require("./flickr-api-object");
       if(!access) {
-        requestToken(options, res, function(err, body) {
-          if(err){
-          	next(err);
-          	return;
+        requestToken(options, function(err, body) {
+          if(options.callback !== "oob") {
+            options.processCredentials = options.processCredentials || function(data) {
+              // default function writes creds to .env
+              if(!options.silent) {
+                console.log("Credentials object:");
+                console.log(JSON.stringify(data,null,2));
+              }
+              var envContent = fs.readFileSync(".env") + "\n";
+              Object.keys(data).forEach(function(key) {
+                envContent += "export " + key + "=" + data[key] + "\n";
+              });
+              fs.writeFileSync(".env", envContent);
+            };
+            options.processCredentials(body);
           }
 
-          next(false, body);
+          // is this auth only, or also API object creation?
+          if(options.noAPI) {
+            process.nextTick(function() { next(false); });
+          }
+          else { new APIBuilder(options, Utils, next); }
         });
       } else { new APIBuilder(options, Utils, next); }
     });
