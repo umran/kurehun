@@ -29,7 +29,8 @@ module.exports = function(ig, redirectUri){
 				profile.fullName = result.user.full_name
 				profile.accessToken
 				profile.accessTokenSecret = ''
-				req.session.ig = result.access_token
+				
+				req.session.ig = profile
 				console.log(result)
 				res.send('Instagram Authenticated')
 			}
