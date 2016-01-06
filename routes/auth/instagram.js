@@ -4,7 +4,7 @@ var router = express.Router()
 module.exports = function(ig, redirectUri){
 
 	var authUser = function(req, res) {
-		if(!req.session.ig_access_token){
+		if(!req.session.ig){
 			res.redirect(ig.get_authorization_url(redirectUri, { scope: ['public_content', 'follower_list', 'comments', 'relationships', 'likes'], state: 'a state' }))
 			return
 		}
@@ -22,7 +22,14 @@ module.exports = function(ig, redirectUri){
 				res.send('Authentication Failed')
 			} else {
 				//set access token in session
-				req.session.ig_access_token = result.access_token
+				var profile = {}
+				profile.provider = 'instagram'
+				profile.id = result.user.id
+				profile.displayName = result.user.username
+				profile.fullName = result.user.full_name
+				profile.accessToken
+				profile.accessTokenSecret = ''
+				req.session.ig = result.access_token
 				console.log(result)
 				res.send('Instagram Authenticated')
 			}

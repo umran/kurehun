@@ -12,8 +12,8 @@ module.exports = function(fkConf){
 	    passReqToCallback: true
 	  },
 	  function(req, token, tokenSecret, profile, done) {
-		profile.access_token = token
-		profile.access_token_secret = tokenSecret
+		profile.accessToken = token
+		profile.accessTokenSecret = tokenSecret
 		
 		//set flickr credentials in session variable
 		req.session.fk = profile
