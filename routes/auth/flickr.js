@@ -12,7 +12,12 @@ module.exports = function(fkConf){
 	    passReqToCallback: true
 	  },
 	  function(req, token, tokenSecret, profile, done) {
-		req.session.fk_access_token = token
+		profile.access_token = token
+		profile.access_token_secret = tokenSecret
+		
+		//set flickr credentials in session variable
+		req.session.fk = profile
+		
 		console.log(profile)
 		done(null, profile)
 	  }
@@ -21,8 +26,24 @@ module.exports = function(fkConf){
 	router.get('/', passport.authenticate('flickr'))
 
 	router.get('/status', passport.authenticate('flickr', {failureRedirect: '/', session: false}), function(req, res) {
-		res.send('Flickr Authenticated')
+		req.session.confirm_attempts = 0;
+		res.redirect('/auth/flickr/status/confirmation')
 	});
+	
+	//confirmation route
+	router.get('/status/confirmation', function(req, res){
+		if(!req.session.fk){
+			if(req.session.confirm_attempts > 1){
+				res.send('FLickr authentication failed for some reason')
+				return
+			}
+			req.session.confirm_attempts+=1
+			res.redirect('/auth/flickr/status/confirmation')
+			return
+			
+		}
+		res.send('Flickr Authenticated')
+	})
 
 	return router
 }
