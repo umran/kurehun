@@ -25,6 +25,7 @@ module.exports = function(fkConf){
 	})
 
 	router.get('/status', function(req, res){
+		console.log(req.session.fk_oauth_token)
 		console.log(req.query)
 		res.send('OK')
 	})
