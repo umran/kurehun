@@ -12,14 +12,14 @@ module.exports = function(igConf){
 	})
 
 	var authUser = function(req, res) {
-		if(!req.session.ig){
-			res.redirect(ig.get_authorization_url(igConf.redirectUri, { scope: ['public_content', 'follower_list', 'comments', 'relationships', 'likes'], state: 'a state' }))
+		if(req.session.ig){
+			//Already Authenticated Case (Maybe redirect to logged in page?)
+			console.log('Access token already set in session, no need to authenticate again')
+			res.send('Instagram Authenticated')	
 			return
 		}
 		
-		//Already Authenticated Case (Maybe redirect to logged in page?)
-		console.log('Access token already set in session, no need to authenticate again')
-		res.send('Instagram Authenticated')
+		res.redirect(ig.get_authorization_url(igConf.redirectUri, { scope: ['public_content', 'follower_list', 'comments', 'relationships', 'likes'], state: 'a state' }))
 	}
  
 	var handleAuth = function(req, res) {
@@ -30,15 +30,18 @@ module.exports = function(igConf){
 				res.send('Authentication Failed')
 			} else {
 				
-				//set access token in session
+				//create instagram profile
 				var profile = {}
+				
 				profile.provider = 'instagram'
 				profile.id = result.user.id
 				profile.displayName = result.user.username
 				profile.fullName = result.user.full_name
 				profile.accessToken = result.access_token
 				
+				//set profile in session
 				req.session.ig = profile
+				
 				console.log(result)
 				res.send('Instagram Authenticated')
 			}
