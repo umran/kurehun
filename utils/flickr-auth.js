@@ -1,6 +1,5 @@
 var crypto = require("crypto")
 var request = require('request')
-var fkConfig = require('../config').api.flickr
 
 module.exports = function(consumerKey, consumerSecret, redirectUri) {
 	
