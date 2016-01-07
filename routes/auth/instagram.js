@@ -35,9 +35,14 @@ module.exports = function(igConf){
 				
 				profile.provider = 'instagram'
 				profile.id = result.user.id
-				profile.displayName = result.user.username
-				profile.fullName = result.user.full_name
-				profile.accessToken = result.access_token
+				profile.username = result.user.username
+				profile.fullname = result.user.full_name
+				profile.access_token = result.access_token
+				
+				//non standard information
+				profile.bio = result.user.bio
+				profile.website = result.user.website
+				profile.profile_picture = result.user.profile_picture
 				
 				//set profile in session
 				req.session.ig = profile

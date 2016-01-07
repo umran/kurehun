@@ -59,6 +59,8 @@ module.exports = function(fkConf){
 			profile.username = data.username
 			profile.fullname = data.fullname
 			profile.access_token = data.oauth_token
+			
+			//non standard information
 			profile.access_token_secret = data.oauth_token_secret
 			
 			//set profile in session
