@@ -3,7 +3,7 @@ var router = express.Router()
 
 module.exports = function(igConf){
 
-	var ig = require('./api/instagram').instagram()
+	var ig = require('../../api/instagram').instagram()
 
 	ig.use({
 		enforce_signed_requests: true,
