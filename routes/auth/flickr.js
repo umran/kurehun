@@ -37,7 +37,7 @@ module.exports = function(fkConf){
 		}
 		
 		//exchange intermediate tokens for access tokens
-		fk.exchangeTokens(req.query.oauth_token, req.session.fk_oauth_token_secret, req.query.oauth_verifier, function(req, data){
+		fk.exchangeTokens(req.query.oauth_token, req.session.fk_oauth_token_secret, req.query.oauth_verifier, function(err, data){
 			if(err){
 				console.log(err.code + ': ' + err.message)
 				res.send('something terrible happened')
