@@ -36,7 +36,7 @@ module.exports = function(igConf){
 				profile.id = result.user.id
 				profile.displayName = result.user.username
 				profile.fullName = result.user.full_name
-				profile.accessToken = ''
+				profile.accessToken = result.access_token
 				
 				req.session.ig = profile
 				console.log(result)
