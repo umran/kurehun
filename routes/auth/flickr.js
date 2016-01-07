@@ -31,7 +31,7 @@ module.exports = function(fkConf){
 			return
 		}
 		
-		if(!req.query.oauth_token || !req.query.oauth_verifier)){
+		if(!req.query.oauth_token || !req.query.oauth_verifier){
 			res.send('Authentication Failed')
 			return
 		}
