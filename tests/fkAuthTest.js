@@ -8,5 +8,5 @@ flickr.initAuth(function(err, body){
 		return
 	}
       
-      console.log(flickr.genAuthUrl(body.oauth_token))
+      console.log(body)
 })

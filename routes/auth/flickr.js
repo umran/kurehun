@@ -7,6 +7,7 @@ module.exports = function(fkConf){
 	var fk = new flickrAuth(fkConf.clientId, fkConf.clientSecret, fkConf.redirectUri)
 
 	router.get('/', function(req, res){
+		
 		//initiate OAuth
 		fk.initAuth(function(err, data){
 			if(err){
@@ -16,7 +17,6 @@ module.exports = function(fkConf){
 			}
 			
 			//set intermediate tokens in session store
-			req.session.fk_oauth_token = data.oauth_token
 			req.session.fk_oauth_token_secret = data.oauth_token_secret
 			
 			//redirect to flickr
@@ -25,9 +25,29 @@ module.exports = function(fkConf){
 	})
 
 	router.get('/status', function(req, res){
-		console.log(req.session.fk_oauth_token)
-		console.log(req.query)
-		res.send('OK')
+		
+		if(!req.session.fk_oauth_token_secret){
+			res.send('Authentication Failed')
+			return
+		}
+		
+		if(!req.query.oauth_token || !req.query.oauth_verifier)){
+			res.send('Authentication Failed')
+			return
+		}
+		
+		//exchange intermediate tokens for access tokens
+		fk.exchangeTokens(req.query.oauth_token, req.session.fk_oauth_token_secret, req.query.oauth_verifier, function(req, data){
+			if(err){
+				console.log(err.code + ': ' + err.message)
+				res.send('something terrible happened')
+				return
+			}
+			
+			console.log(data)
+			res.send('Flickr Authenticated')
+		})
+		
 	})
 
 	return router

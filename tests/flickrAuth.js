@@ -24,8 +24,6 @@ module.exports = function(consumerKey, consumerSecret, redirectUri) {
 			params.oauth_token = token
 			params.oauth_verifier = verifier
 		
-		} else if (token || tokenSecret || verifier) {
-			return false
 		}
 		
 		params.oauth_consumer_key = self.consumerKey
@@ -77,7 +75,7 @@ module.exports = function(consumerKey, consumerSecret, redirectUri) {
 		
 		constituents.forEach(function(pair) {
 			keyval = pair.split("=")
-			result[keyval[0]] = decodeURIComponent(keyval[1])
+			result[decodeURIComponent(keyval[0])] = decodeURIComponent(keyval[1])
 		})
 		
 		return result
@@ -86,6 +84,26 @@ module.exports = function(consumerKey, consumerSecret, redirectUri) {
 	this.initAuth = function(callback){
 		
 		var url = self.genRequest()
+		
+		request.get(url, function(err, res, body){
+			if(err){
+				callback({code: 602, message: err})
+				return
+			}
+			
+			if(res.statusCode !== 200){
+				callback({code: 601, message: 'Bad HTTP Response: ' + res.statusCode})
+				return
+			}
+			
+			var result = self.parseResponse(body)
+			callback(null, result)
+		})
+	}
+	
+	this.exchangeTokens = function(token, tokenSecret, verifier, callback){
+		
+		var url = self.genRequest(token, tokenSecret, verifier)
 		
 		request.get(url, function(err, res, body){
 			if(err){

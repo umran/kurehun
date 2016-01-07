@@ -23,7 +23,7 @@ module.exports = function(igConf){
 	}
  
 	var handleAuth = function(req, res) {
-	
+		
 		ig.authorize_user(req.query.code, igConf.redirectUri, function(err, result) {
 			if (err) {
 				console.log(err.body)
