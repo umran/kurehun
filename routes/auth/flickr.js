@@ -16,11 +16,11 @@ module.exports = function(fkConf){
 				return
 			}
 			
-			//set intermediate tokens in session store
+			//set intermediate token secret in session store
 			req.session.fk_oauth_token_secret = data.oauth_token_secret
 			
 			//redirect to flickr
-			res.redirect(fk.genAuthUrl(req.session.fk_oauth_token))
+			res.redirect(fk.genAuthUrl(data.oauth_token))
 		})
 	})
 
