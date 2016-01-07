@@ -11,14 +11,17 @@ module.exports = function(consumerKey, consumerSecret, redirectUri) {
 	this.redirectUri = redirectUri
 	this.httpVerb = 'GET'
 	this.requestEndPoint = 'https://www.flickr.com/services/oauth/request_token'
+	this.accessEndPoint = 'https://www.flickr.com/services/oauth/access_token'
 	this.authorizeEndPoint = 'https://www.flickr.com/services/oauth/authorize'
 	
 	this.genRequest = function(token, tokenSecret, verifier){
+		var endPoint = self.requestEndPoint
 		var hmacKey = encodeURIComponent(self.consumerSecret) + '&'
 		var params = {}
 		
 		if(token && tokenSecret && verifier) {
-		
+			
+			endPoint = self.accessEndPoint
 			hmacKey += encodeURIComponent(tokenSecret)
 		
 			params.oauth_token = token
@@ -53,11 +56,11 @@ module.exports = function(consumerKey, consumerSecret, redirectUri) {
 		})
 	
 		var paramsString = sortedParams.join('&'),
-		    baseString = self.httpVerb + '&' + encodeURIComponent(self.requestEndPoint) + '&' + encodeURIComponent(paramsString)
+		    baseString = self.httpVerb + '&' + encodeURIComponent(endPoint) + '&' + encodeURIComponent(paramsString)
 		    signature = crypto.createHmac('SHA1', hmacKey).update(baseString).digest('base64');
 	
 		paramsString += '&' + encodeURIComponent('oauth_signature') + '=' + encodeURIComponent(signature)
-		var requestUrl = self.requestEndPoint + '?' + paramsString
+		var requestUrl = endPoint + '?' + paramsString
 		
 		return requestUrl
 		
