@@ -22,8 +22,8 @@
     "serve-favicon": "~2.2.0"
   },
   "devDependencies": {
+    "growl": "*",
     "mocha": "*",
-    "should": "*",
-    "growl": "*"
+    "should": "*"
   }
 }
