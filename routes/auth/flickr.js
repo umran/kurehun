@@ -1,48 +1,32 @@
 var express = require('express')
 var router = express.Router()
-var passport = require('passport')
-var FlickrStrategy = require('passport-flickr').Strategy
+var flickrAuth = require('../../tests/flickrAuth')
 
 module.exports = function(fkConf){
 
-	passport.use(new FlickrStrategy({
-	    consumerKey: fkConf.clientId,
-	    consumerSecret: fkConf.clientSecret,
-	    callbackURL: fkConf.redirectUri,
-	    passReqToCallback: true
-	  },
-	  function(req, token, tokenSecret, profile, done) {
-		profile.accessToken = token
-		profile.accessTokenSecret = tokenSecret
-		
-		//set flickr credentials in session variable
-		req.session.fk = profile
-		
-		console.log(profile)
-		done(null, profile)
-	  }
-	))
+	var fk = new flickrAuth(fkConf.clientId, fkConf.clientSecret, fkConf.redirectUri)
 
-	router.get('/', passport.authenticate('flickr'))
-
-	router.get('/status', passport.authenticate('flickr', {failureRedirect: '/', session: false}), function(req, res) {
-		req.session.confirm_attempts = 0;
-		res.redirect('/auth/flickr/status/confirmation')
-	});
-	
-	//confirmation route
-	router.get('/status/confirmation', function(req, res){
-		if(!req.session.fk){
-			if(req.session.confirm_attempts > 1){
-				res.send('FLickr authentication failed for some reason')
+	router.get('/', function(req, res){
+		//initiate OAuth
+		fk.initAuth(function(err, data){
+			if(err){
+				console.log(err.code + ': ' + err.message)
+				res.send('something terrible happened')
 				return
 			}
-			req.session.confirm_attempts+=1
-			res.redirect('/auth/flickr/status/confirmation')
-			return
 			
-		}
-		res.send('Flickr Authenticated')
+			//set intermediate tokens in session store
+			req.session.fk_oauth_token = data.oauth_token
+			req.session.fk_oauth_token_secret = data.oauth_token_secret
+			
+			//redirect to flickr
+			res.redirect(fk.genAuthUrl(req.session.fk_oauth_token))
+		})
+	})
+
+	router.get('/status', function(req, res){
+		console.log(req.query)
+		res.send('OK')
 	})
 
 	return router

@@ -1,11 +1,19 @@
 var express = require('express')
 var router = express.Router()
 
-module.exports = function(ig, redirectUri){
+module.exports = function(igConf){
+
+	var ig = require('./api/instagram').instagram()
+
+	ig.use({
+		enforce_signed_requests: true,
+		client_id: igConf.clientId,
+		client_secret: igConf.clientSecret
+	})
 
 	var authUser = function(req, res) {
 		if(!req.session.ig){
-			res.redirect(ig.get_authorization_url(redirectUri, { scope: ['public_content', 'follower_list', 'comments', 'relationships', 'likes'], state: 'a state' }))
+			res.redirect(ig.get_authorization_url(igConf.redirectUri, { scope: ['public_content', 'follower_list', 'comments', 'relationships', 'likes'], state: 'a state' }))
 			return
 		}
 		
@@ -16,19 +24,19 @@ module.exports = function(ig, redirectUri){
  
 	var handleAuth = function(req, res) {
 	
-		ig.authorize_user(req.query.code, redirectUri, function(err, result) {
+		ig.authorize_user(req.query.code, igConf.redirectUri, function(err, result) {
 			if (err) {
 				console.log(err.body)
 				res.send('Authentication Failed')
 			} else {
+				
 				//set access token in session
 				var profile = {}
 				profile.provider = 'instagram'
 				profile.id = result.user.id
 				profile.displayName = result.user.username
 				profile.fullName = result.user.full_name
-				profile.accessToken
-				profile.accessTokenSecret = ''
+				profile.accessToken = ''
 				
 				req.session.ig = profile
 				console.log(result)

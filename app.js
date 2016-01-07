@@ -16,19 +16,10 @@ var redisConf = config.redis
 var igConf = config.api.instagram
 var fkConf = config.api.flickr
 
-//initialize instagram api
-var ig = require('./api/instagram').instagram()
-
-ig.use({
-	enforce_signed_requests: true,
-	client_id: igConf.clientId,
-	client_secret: igConf.clientSecret
-})
-
 
 var index = require('./routes/index')
 var users = require('./routes/users')
-var igAuth = require('./routes/auth/instagram')(ig, igConf.redirectUri)
+var igAuth = require('./routes/auth/instagram')(igConf)
 var fkAuth = require('./routes/auth/flickr')(fkConf)
 
 var app = express()
