@@ -8,7 +8,7 @@ module.exports = function(fkConf){
 
 	router.get('/', function(req, res){
 		
-		if(req.session.hello){
+		if(req.session.hello.flickr){
 			//Already Authenticated Case (Maybe redirect to logged in page?)
 			console.log('Access token already set in session, no need to authenticate again')
 			res.redirect('/hello')
@@ -51,8 +51,10 @@ module.exports = function(fkConf){
 				return
 			}
 			
-			//create flickr profile variable in session
-			req.session.hello.flickr = {}
+			//create profiles object in session if doesn't exist
+			if(!req.session.hello){
+				req.session.hello = {}
+			}
 			
 			//create flickr profile
 			var profile = {}

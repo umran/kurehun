@@ -12,7 +12,7 @@ module.exports = function(igConf){
 	})
 
 	var authUser = function(req, res) {
-		if(req.session.hello){
+		if(req.session.hello.instagram){
 			//Already Authenticated Case (Maybe redirect to logged in page?)
 			console.log('Access token already set in session, no need to authenticate again')
 			res.redirect('/hello')	
@@ -30,8 +30,10 @@ module.exports = function(igConf){
 				res.send('Authentication Failed')
 			} else {
 				
-				//create instagram profile variable in session
-				req.session.hello.instagram = {}
+				//create profiles object in session if doesn't exist
+				if(!req.session.hello){
+					req.session.hello = {}
+				}
 				
 				//create instagram profile
 				var profile = {}
