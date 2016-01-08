@@ -12,10 +12,10 @@ module.exports = function(igConf){
 	})
 
 	var authUser = function(req, res) {
-		if(req.session.ig){
+		if(req.session.hello){
 			//Already Authenticated Case (Maybe redirect to logged in page?)
 			console.log('Access token already set in session, no need to authenticate again')
-			res.send('Instagram Authenticated')	
+			res.redirect('/hello')	
 			return
 		}
 		
@@ -32,8 +32,7 @@ module.exports = function(igConf){
 				
 				//create instagram profile
 				var profile = {}
-				
-				profile.provider = 'instagram'
+
 				profile.id = result.user.id
 				profile.username = result.user.username
 				profile.fullname = result.user.full_name
@@ -45,10 +44,10 @@ module.exports = function(igConf){
 				profile.profile_picture = result.user.profile_picture
 				
 				//set profile in session
-				req.session.ig = profile
+				req.session.hello.instagram = profile
 				
 				console.log(result)
-				res.send('Instagram Authenticated')
+				res.redirect('/hello')
 			}
 		})
 	}

@@ -17,7 +17,7 @@ var fkConf = config.api.flickr
 
 
 var index = require('./routes/index')
-var users = require('./routes/users')
+var hello = require('./routes/hello')
 var igAuth = require('./routes/auth/instagram')(igConf)
 var fkAuth = require('./routes/auth/flickr')(fkConf)
 
@@ -51,7 +51,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', index)
-app.use('/users', users)
+app.use('/hello', hello)
 app.use('/auth/instagram', igAuth)
 app.use('/auth/flickr', fkAuth)
 
