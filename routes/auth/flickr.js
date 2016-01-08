@@ -8,7 +8,7 @@ module.exports = function(fkConf){
 
 	router.get('/', function(req, res){
 		
-		if(req.session.hello.flickr){
+		if(req.session.hello && req.session.hello.flickr){
 			//Already Authenticated Case (Maybe redirect to logged in page?)
 			console.log('Access token already set in session, no need to authenticate again')
 			res.redirect('/hello')

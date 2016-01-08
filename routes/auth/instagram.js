@@ -12,7 +12,7 @@ module.exports = function(igConf){
 	})
 
 	var authUser = function(req, res) {
-		if(req.session.hello.instagram){
+		if(req.session.hello && req.session.hello.instagram){
 			//Already Authenticated Case (Maybe redirect to logged in page?)
 			console.log('Access token already set in session, no need to authenticate again')
 			res.redirect('/hello')	
