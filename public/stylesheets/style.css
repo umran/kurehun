@@ -409,10 +409,11 @@ body {
   background-size: cover; 
   background-position: 50% 50%;
   background-repeat: no-repeat; }
-  @media 
-  and (max-device-width: 480px) {
-  	background-image: none;
-  	background-color: #5A91AC;
+  @media (max-device-width: 480px) {
+    .hero{
+      background-image: none;
+  	background-color: #5A91AC;	
+    }
   }
   @media (max-width: 768px) {
     .hero {
