@@ -30,6 +30,9 @@ module.exports = function(igConf){
 				res.send('Authentication Failed')
 			} else {
 				
+				//create instagram profile variable in session
+				req.session.hello.instagram = {}
+				
 				//create instagram profile
 				var profile = {}
 

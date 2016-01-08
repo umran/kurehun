@@ -51,6 +51,9 @@ module.exports = function(fkConf){
 				return
 			}
 			
+			//create flickr profile variable in session
+			req.session.hello.flickr = {}
+			
 			//create flickr profile
 			var profile = {}
 			
