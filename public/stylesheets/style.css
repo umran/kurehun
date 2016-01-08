@@ -410,8 +410,8 @@ body {
   background-position: 50% 50%;
   background-repeat: no-repeat; }
   @media 
-  and (max-device-width: 480px)
-  and (orientation: portrait) {
+  and (max-device-width: 480px) {
+  	background-image: none;
   	background-color: #5A91AC;
   }
   @media (max-width: 768px) {
