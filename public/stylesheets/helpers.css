@@ -6,6 +6,10 @@
 	margin-left: 0.5rem;
 }
 
+.no-padding {
+	padding: 0px;
+}
+
 .login, .signup {
 	padding-top: 0px;
 }
