@@ -418,8 +418,7 @@ body {
   }
   @media (max-width: 768px) {
     .hero {
-      padding: 8rem 0 4rem;
-      text-align: center;} }
+      padding: 8rem 0 4rem;} }
   .hero h1 {
     margin: 0 0 2rem 0;
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); }
@@ -428,9 +427,6 @@ body {
         text-align: center; } }
   .hero h3 {
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); }
-    @media (max-width: 768px) {
-      .hero h3 {
-        text-align: center; } }
   .hero .button.instagram {
     margin: 0 auto 0 auto; }
 
