@@ -109,6 +109,7 @@ strong {
     transform: translateY(-50%);
     float:left; }
     .header .logo-text span {
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
       font-size: 2rem;
       font-weight: 600;
       line-height: 1.1875rem;
