@@ -412,7 +412,7 @@ body {
   @media (max-device-width: 480px) {
     .hero{
       background-image: -webkit-radial-gradient(top left, #103944 0%, #5A91AC 100%);
-      background-image: radial-gradient(at top left, #103944 0%, #5A91AC 100%);	
+      background-image: radial-gradient(at top left, #103944 0%, #5A91AC 100%);
     }
   }
   @media (max-width: 768px) {
