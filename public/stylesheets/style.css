@@ -417,7 +417,7 @@ body {
   }
   @media (max-width: 768px) {
     .hero {
-      padding: 9.375rem 0;
+      padding: 5rem 0;
       text-align: center; } }
   .hero h1 {
     margin: 0 0 2rem 0;
