@@ -409,7 +409,7 @@ body {
   background-size: cover; 
   background-position: 50% 50%;
   background-repeat: no-repeat; }
-  @media (max-device-width: 480px) {
+  @media (max-device-width: 580px) {
     .hero{
       background-image: -webkit-radial-gradient(top left, #103944 0%, #5A91AC 100%);
       background-image: radial-gradient(at top left, #103944 0%, #5A91AC 100%);
@@ -418,7 +418,7 @@ body {
   @media (max-width: 768px) {
     .hero {
       padding: 8rem 0 4rem;
-      text-align: center; } }
+      text-align: center;} }
   .hero h1 {
     margin: 0 0 2rem 0;
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); }
