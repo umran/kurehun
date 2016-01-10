@@ -3,19 +3,48 @@ block content
 	div(class='hero')
 		div(class='container-fluid')
 			div(class='row')
-				div(class='col-sm-8')
-					h1
-						|Set your content free like anything beautiful has ever been
-					h3
-						|Sign up with
-					
-					a(class='btn btn-primary btn-lg text-center' href='/auth/instagram')
-						i(class='fa fa-instagram')
-						|	Instagram
-					a(class='btn btn-warning btn-lg btn-next text-center' href='/auth/flickr')
-						i(class='fa fa-flickr')
-						|	Flickr
-							
+				div(class='col-sm-6')
+					div(class='intro')
+						h1
+							|Set your content free like anything beautiful has ever been
+						h3(class='sub-intro')
+							|Help keep the internet free and open by licensing your work with <i class='cc cc-logo'></i>
+				div(class='col-sm-6')
+					div(class='row')
+						div(class='col-sm-offset-2 col-sm-10 form-name')
+							h3(class='form-name-text')
+								|Sign in
+					form(class='form-horizontal login')
+						div(class='form-group')
+							div(class='col-sm-offset-2 col-sm-8')
+								input(input type='text' class='form-control login-form' id='username' placeholder='@')
+						div(class='form-group')
+							div(class='col-sm-offset-2 col-sm-8')
+								input(input type='password' class='form-control login-form' id='password' placeholder='password')
+						div(class='form-group')
+							div(class='col-sm-offset-2 col-sm-8')
+								button(type='submit' class='btn btn-success')
+									|Sign in	
+								a(class='btn btn-primary btn-next text-center' href='/auth/instagram')
+									|<i class='fa fa-instagram'></i> Sign in with Instagram
+					div(class='row form-next')
+						div(class='col-sm-offset-2 col-sm-10 form-name')
+							h3(class='form-name-text')
+								|Sign up
+					form(class='form-horizontal login')
+						div(class='form-group')
+							div(class='col-sm-offset-2 col-sm-8')
+								input(input type='text' class='form-control login-form' id='username' placeholder='username')
+						div(class='form-group')
+							div(class='col-sm-offset-2 col-sm-8')
+								input(input type='password' class='form-control login-form' id='password' placeholder='password')
+						div(class='form-group')
+							div(class='col-sm-offset-2 col-sm-8')
+								input(input type='password' class='form-control login-form' id='password' placeholder='confirm password')
+						div(class='form-group')
+							div(class='col-sm-offset-2 col-sm-8')
+								button(type='submit' class='btn btn-warning')
+									|Sign up	
 	div(class='setup')
 		div(class='container-fluid')
 			div(class='row')
