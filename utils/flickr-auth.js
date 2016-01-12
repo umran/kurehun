@@ -5,22 +5,22 @@ module.exports = function(consumerKey, consumerSecret, redirectUri) {
 	
 	var self = this
 	
-	this.consumerKey = consumerKey
-	this.consumerSecret = consumerSecret
-	this.redirectUri = redirectUri
-	this.httpVerb = 'GET'
-	this.requestEndPoint = 'https://www.flickr.com/services/oauth/request_token'
-	this.accessEndPoint = 'https://www.flickr.com/services/oauth/access_token'
-	this.authorizeEndPoint = 'https://www.flickr.com/services/oauth/authorize'
+	var consumerKey = consumerKey,
+	    consumerSecret = consumerSecret,
+	    redirectUri = redirectUri,
+	    httpVerb = 'GET',
+	    requestEndPoint = 'https://www.flickr.com/services/oauth/request_token',
+	    accessEndPoint = 'https://www.flickr.com/services/oauth/access_token',
+	    authorizeEndPoint = 'https://www.flickr.com/services/oauth/authorize'
 	
 	this.genRequest = function(token, tokenSecret, verifier){
-		var endPoint = self.requestEndPoint
-		var hmacKey = encodeURIComponent(self.consumerSecret) + '&'
+		var endPoint = requestEndPoint
+		var hmacKey = encodeURIComponent(consumerSecret) + '&'
 		var params = {}
 		
 		if(token && tokenSecret && verifier) {
 			
-			endPoint = self.accessEndPoint
+			endPoint = accessEndPoint
 			hmacKey += encodeURIComponent(tokenSecret)
 		
 			params.oauth_token = token
@@ -28,10 +28,10 @@ module.exports = function(consumerKey, consumerSecret, redirectUri) {
 		
 		}
 		
-		params.oauth_consumer_key = self.consumerKey
+		params.oauth_consumer_key = consumerKey
 		params.oauth_signature_method = 'HMAC-SHA1'
 		params.oauth_version = '1.0'
-		params.oauth_callback = self.redirectUri
+		params.oauth_callback = redirectUri
 		
 		//generate timestamp and nonce
 		var timestamp = Date.now().toString(),
@@ -55,7 +55,7 @@ module.exports = function(consumerKey, consumerSecret, redirectUri) {
 		})
 	
 		var paramsString = sortedParams.join('&'),
-		    baseString = self.httpVerb + '&' + encodeURIComponent(endPoint) + '&' + encodeURIComponent(paramsString)
+		    baseString = httpVerb + '&' + encodeURIComponent(endPoint) + '&' + encodeURIComponent(paramsString)
 		    signature = crypto.createHmac('SHA1', hmacKey).update(baseString).digest('base64');
 	
 		paramsString += '&' + encodeURIComponent('oauth_signature') + '=' + encodeURIComponent(signature)
@@ -66,7 +66,7 @@ module.exports = function(consumerKey, consumerSecret, redirectUri) {
 	}
 	
 	this.genAuthUrl = function(requestToken){
-		var url = self.authorizeEndPoint + '?' + encodeURIComponent('oauth_token') + '=' + encodeURIComponent(requestToken) + '&' + encodeURIComponent('perms') + '=' + encodeURIComponent('read')
+		var url = authorizeEndPoint + '?' + encodeURIComponent('oauth_token') + '=' + encodeURIComponent(requestToken) + '&' + encodeURIComponent('perms') + '=' + encodeURIComponent('read')
 		return url
 	}
 
