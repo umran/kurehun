@@ -1,5 +1,6 @@
 var express = require('express')
 var router = express.Router()
+var User = require('../../models/users')
 
 module.exports = function(igConf){
 
@@ -30,11 +31,6 @@ module.exports = function(igConf){
 				res.send('Authentication Failed')
 			} else {
 				
-				//create profiles object in session if doesn't exist
-				if(!req.session.hello){
-					req.session.hello = {}
-				}
-				
 				//create instagram profile
 				var profile = {}
 
@@ -47,6 +43,14 @@ module.exports = function(igConf){
 				profile.bio = result.user.bio
 				profile.website = result.user.website
 				profile.profile_picture = result.user.profile_picture
+				
+				//store in disk
+				
+				
+				//create profiles object in session if doesn't exist
+				if(!req.session.hello){
+					req.session.hello = {}
+				}
 				
 				//set profile in session
 				req.session.hello.instagram = profile

@@ -1,6 +1,6 @@
 module.exports = {
 	
-	sessionSecret: 'SESSION_SECRET',
+	sessionSecret: '',
 	
 	redis: {
 		
@@ -12,27 +12,25 @@ module.exports = {
 		}
 	},
 	
+	mongodb: {
+		
+		host: '127.0.0.1',
+		port: 2707,
+		db: 'kurehun'
+	},
+	
 	api: {
 		
 		instagram: {
-			clientId: 'CLIENT_ID',
-			clientSecret: 'CLIENT_SECRET',
-			redirectUri: 'REDIRECT_URI'
-		}
+			clientId: '',
+			clientSecret: '',
+			redirectUri: ''
+		},
 		
 		flickr: {
-			clientId: 'CLIENT_ID',
-			clientSecret: 'CLIENT_SECRET'
-		}
-		
-		soundcloud: {
-			clientId: 'CLIENT_ID',
-			clientSecret: 'CLIENT_SECRET'
-		}
-		
-		youtube: {
-			clientId: 'CLIENT_ID',
-			clientSecret: 'CLIENT_SECRET'
+			clientId: '',
+			clientSecret: '',
+			redirectUri: ''
 		}
 	}
 
