@@ -2,10 +2,8 @@ var crypto = require('crypto');
 
 module.exports = function(userEncryptionKey) {
 
-	var self = this
-
-	this.algorithm = 'aes-128-gcm'
-	this.key = new Buffer(userEncryptionKey, 'hex')
+	var algorithm = 'aes-128-gcm',
+	    key = new Buffer(userEncryptionKey, 'hex')
 
 	this.encrypt = function(message, callback) {
 		crypto.randomBytes(12, function(ex, nonce) {
@@ -16,7 +14,7 @@ module.exports = function(userEncryptionKey) {
 			}
 
 			//if no error on nonce generation, do encryption
-			var cipher = crypto.createCipheriv(self.algorithm, self.key, nonce),
+			var cipher = crypto.createCipheriv(algorithm, key, nonce),
 			    encrypted = cipher.update(message, 'utf8', 'hex')
 
 			encrypted += cipher.final('hex')
@@ -33,7 +31,7 @@ module.exports = function(userEncryptionKey) {
 
 	this.decrypt = function(ciphertext, callback) {
 
-		var decrypt = crypto.createDecipheriv(self.algorithm, self.key, new Buffer(ciphertext.nonce, 'hex'))
+		var decrypt = crypto.createDecipheriv(algorithm, key, new Buffer(ciphertext.nonce, 'hex'))
 		decrypt.setAuthTag(new Buffer(ciphertext.tag, 'hex'))
 
 		var dec = decrypt.update(ciphertext.content, 'hex', 'utf8')
