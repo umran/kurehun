@@ -10,7 +10,7 @@ Kurehun currently runs on these dependencies. This list will likely grow to incl
 
 ### Installation and Usage
 
-Do the following after cloning into or downloading haveerucrawler
+Do the following after cloning into or downloading kurehun
 
 #### Install Package Dependencies
 
