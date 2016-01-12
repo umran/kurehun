@@ -35,7 +35,7 @@ $ cp config.example.js config.js
 $ nano config.js
 ```
 
-and change the file (which follows a basic json structure) to suit your setup
+Then change the file (which follows a basic json structure) to suit your setup
 
 ```js
 module.exports = {
@@ -90,4 +90,10 @@ Start the application with
 
 ```js
 $ npm start
+```
+
+To run it in debug mode
+
+```js
+$ DEBUG=kurehun:* ./bin/www
 ```
