@@ -28,7 +28,7 @@ $ npm install
 
 #### Create a configuration file
 
-Copy config.example.js file to config.js and open it in a text-editor
+Copy config.example.js to config.js and open it in a text-editor
 
 ```js
 $ cp config.example.js config.js
