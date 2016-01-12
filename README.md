@@ -1,5 +1,5 @@
 # kurehun
-Kurehun is a public feed of user generated media (photos, paintings, songs, videos) sourced from instagram, flickr, soundcloud, youtube, etc.
+Kurehun is a public feed of user generated media (photos, paintings, audio, videos) sourced from instagram, flickr, soundcloud, youtube, etc.
 Users sign up, link their social accounts and choose which content will appear in the public feed. In case of flickr, instagram and other services offering PubSubHubbub, the user has the option to set up subscriptions which will allow the service to get push notifications of new content.
 
 ### Dependencies
