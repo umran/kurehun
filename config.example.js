@@ -1,6 +1,7 @@
 module.exports = {
 	
 	sessionSecret: '',
+	userEncryptionKey: '',
 	
 	redis: {
 		
