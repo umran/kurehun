@@ -63,6 +63,7 @@ body {
 .logo-text {
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 	text-align: center;
+	font-weight: 600;
 	line-height: 1.1875rem;
 	letter-spacing: -0.15rem; 
 	color: #FFF;
@@ -70,7 +71,6 @@ body {
 
 .logo-text-alt {
 	text-align: center;
-	font-weight: 600;
 	line-height: 1.1875rem;
 	letter-spacing: -0.15rem; 
 	color: #333;
