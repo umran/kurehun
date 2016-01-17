@@ -6,7 +6,7 @@ html
 		title= title + ' · Kurehun'
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
-		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/alt.css')
 		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Lato:400,700')
 		script(type='text/javascript', src='/javascript/jquery.min.js')
 		script(type='text/javascript', src='/bootstrap/js/bootstrap.min.js')
@@ -17,26 +17,14 @@ html
 		script(type='text/javascript', src='/javascript/app/services.js')
 		script(type='text/javascript', src='/javascript/app/main.js')
 	
-	body()
+	body(class='bg-cover')
 		block head
-			div(class='header')
-				div(class='container-fluid')
-					div(class='row')
-						div(class='col-sm-12')
-							div(class='logo-text')
-								span()
-									a(href='#')
-										|kurehun
-							div(class='account-email')
-								span()
-									a(href='#')= nav
 		block content
 		block foot
-			div(class='footer')
-				div(class='container-fluid')
+			footer(class='footer')
+				div(class='container')
 					div(class='row')
-						div(class='col-sm-6 made-in-oc text-left')
-							span
-								|For the public with lots of <i class='twa twa-heart'></i>️ from the team at kurehun
-								br
-								i(class='licence-footer cc cc-publicdomain')
+						div(class='col-xs-8')
+							|For everyone with lots of <i class='twa twa-heart'></i>️ from the team at kurehun
+						div(class='col-xs-4')
+							i(class='licence-footer cc cc-publicdomain pull-right')

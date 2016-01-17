@@ -18,7 +18,7 @@ module.exports = function(igConf){
 			res.redirect('/hello')	
 			return
 		}
-		
+
 		res.redirect(ig.get_authorization_url(igConf.redirectUri, { scope: ['public_content', 'follower_list', 'comments', 'relationships', 'likes'], state: 'a state' }))
 	}
  
@@ -42,10 +42,10 @@ module.exports = function(igConf){
 				profile.bio = result.user.bio
 				profile.website = result.user.website
 				profile.profile_picture = result.user.profile_picture
-				
+
 				//store in disk
-				
-				
+
+
 				//create profiles object in session if doesn't exist
 				if(!req.session.hello){
 					req.session.hello = {}
@@ -63,6 +63,6 @@ module.exports = function(igConf){
 	router.get('/', authUser)
 
 	router.get('/status', handleAuth)
-	
+
 	return router
 }

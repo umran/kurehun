@@ -1,53 +1,18 @@
 extends layout
+block head
+	nav(class='navbar navbar-default navbar-authed')
+		div(class='container')
+			div(class='row')
+				div(class='col-xs-6 nav-col')
+					div(class='navbar-header')							
+						a(class='navbar-brand')
+							span(class='logo-text')
+								|kurehun
+							//img(src='/graphics/logo/alt24.svg')
+				div(class='col-xs-6 nav-col')
+					ul(class='nav navbar-nav pull-right')
+						li
+							a(href='https://github.com/umran/haveerucrawler')
+								span(class='octicon octicon-mark-github')
+								|	Github
 block content
-	div(class='hero')
-		div(class='container-fluid')
-			div(class='row')
-				div(class='col-sm-8')
-					h1
-						|Set your content free like anything beautiful has ever been
-					h3
-						|Sign up with
-					
-					a(class='btn btn-primary btn-lg text-center' href='/auth/instagram')
-						i(class='fa fa-instagram')
-						|	Instagram
-					a(class='btn btn-warning btn-lg btn-next text-center' href='/auth/flickr')
-						i(class='fa fa-flickr')
-						|	Flickr
-							
-	div(class='setup')
-		div(class='container-fluid')
-			div(class='row')
-				div(class='col-sm-12')
-					h2
-						|How it works
-					h5
-						|Kurehun allows you to share your work with the public under a <i class='cc cc-logo'></i> license
-	
-					div(class='steps-container')
-						div(class='row')
-							div(class='step col-sm-4')
-								div(class='step-number')
-									|1
-								div(class='step-content')
-									h4
-										|Link Accounts
-									p
-										|Link kurehun with your social media accounts. We currently support Flickr, Instagram, SoundCloud and Youtube.
-							div(class='step col-sm-4')
-								div(class='step-number')
-									|2
-								div(class='step-content')
-									h4
-										|Import Media
-									p
-										|Import content from your linked media accounts. You may opt to automatically sync content from your accounts.
-							div(class='step col-sm-4')
-								div(class='step-number')
-									|3
-								div(class='step-content')
-									h4
-										|Share Content
-									p
-										|Share your content under a Creative Commons license and voilà! You've helped keep the internet creative, free and open.

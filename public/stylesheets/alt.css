@@ -1,0 +1,142 @@
+@import url(/stylesheets/includes.css);
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+	body {
+	    margin-bottom: 6rem;
+	}
+}
+
+.bg-cover {
+	background: url('/graphics/lm.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.no-bg-cover {
+	background-image: none;
+}
+
+.navbar {
+    	margin-bottom: 0;
+    	border: none;
+}
+
+.navbar-default {
+	font-size: 1.25rem;
+	border-radius: 0;
+	background-color: transparent;
+	background-image: none;
+	box-shadow: none;
+}
+
+.navbar-unauthed {
+	color:#FFF;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-authed {
+	color:#333;
+}
+
+.navbar-brand {
+	margin-left:-15px;
+}
+
+.navbar-default .nav>li>a {
+	color:#FFF;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+	.navbar-default .nav>li>a {
+		padding-right: 0;
+	}
+}
+
+.logo-text {
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	font-weight: 600;
+	line-height: 1.1875rem;
+	letter-spacing: -0.15rem; 
+	color: #FFF;
+}
+
+.hero {
+	color: #FFF;
+	padding: 14rem 0;
+}
+
+@media (max-width: 768px) {
+	.hero {
+	    padding: 7rem 0;
+	}
+}
+
+@media (max-width: 768px) {
+	.hero h1 {
+		text-align: center;
+	}
+}
+
+.hero h1 {
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero h3 {
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.login, .signup {
+	padding-top: 1.5rem;
+}
+
+.login-form, .signup-form {
+	border: 0px solid #ccc;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.form-name-text {
+	letter-spacing: 0;
+}
+
+.form-next {
+	padding-top: 1rem;
+}
+
+.footer {
+	position: absolute;
+  	bottom: 0;
+  	width: 100%;
+  	height: 4rem;
+	line-height:1.75;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+	color:#FFF;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+	.footer {
+	    height: 6rem;
+	}
+}
+
+.licence-footer {
+	font-size: 2rem;
+	border: none;
+}
