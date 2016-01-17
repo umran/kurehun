@@ -15,5 +15,5 @@ ig.user_media_recent('373989785', function(err, data, remaining, limit) {
 		return
 	}
 	
-	console.log(data)
+	console.log(data[0])
 })
