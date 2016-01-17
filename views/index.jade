@@ -1,82 +1,43 @@
 extends layout
 block content
 	div(class='hero')
-		div(class='container-fluid')
+		div(class='container')
 			div(class='row')
-				div(class='col-sm-6')
-					div(class='intro')
-						h1
-							|Set your content free like anything beautiful has ever been
-				div(class='col-sm-6')
+				div(class='col-xs-12')
 					div(class='row')
-						div(class='col-sm-offset-2 col-sm-10 form-name')
-							h3(class='form-name-text')
-								|Sign in
+						div(class='col-sm-offset-4 col-sm-4 col-xs-12 form-name')
+							h1(class='logo-text')
+								|Kurehun
 					form(class='form-horizontal login')
 						div(class='form-group')
-							div(class='col-sm-offset-2 col-sm-8')
+							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
 								input(input type='text' class='form-control login-form' id='username' placeholder='@')
 						div(class='form-group')
-							div(class='col-sm-offset-2 col-sm-8')
+							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
 								input(input type='password' class='form-control login-form' id='password' placeholder='password')
 						div(class='form-group')
-							div(class='col-sm-offset-2 col-sm-8')
-								button(type='submit' class='btn btn-success')
+							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
+								button(type='submit' class='btn btn-success btn-block')
 									|Sign in
 						div(class='form-group')
-							div(class='col-sm-offset-2 col-sm-8')
-								a(class='btn btn-primary text-center' href='/auth/instagram')
-									|<i class='fa fa-instagram'></i> Sign in with Instagram
-					div(class='row form-next')
-						div(class='col-sm-offset-2 col-sm-10 form-name')
+							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
+								a(class='btn btn-primary btn-block' href='/auth/instagram')
+									|<i class='fa fa-instagram'></i> Instagram
+					//div(class='row form-next')
+						div(class='col-sm-offset-4 col-sm-4 col-xs-12 form-name')
 							h3(class='form-name-text')
 								|Sign up
-					form(class='form-horizontal login')
+					//form(class='form-horizontal login')
 						div(class='form-group')
-							div(class='col-sm-offset-2 col-sm-8')
+							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
 								input(input type='text' class='form-control login-form' id='username' placeholder='username')
 						div(class='form-group')
-							div(class='col-sm-offset-2 col-sm-8')
+							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
 								input(input type='password' class='form-control login-form' id='password' placeholder='password')
 						div(class='form-group')
-							div(class='col-sm-offset-2 col-sm-8')
+							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
 								input(input type='password' class='form-control login-form' id='password' placeholder='confirm password')
 						div(class='form-group')
-							div(class='col-sm-offset-2 col-sm-8')
+							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
 								button(type='submit' class='btn btn-warning')
-									|Sign up	
-	div(class='setup')
-		div(class='container-fluid')
-			div(class='row')
-				div(class='col-sm-12')
-					h2
-						|How it works
-					h5
-						|Kurehun allows you to share your work with the public under a <i class='cc cc-logo'></i> license
-	
-					div(class='steps-container')
-						div(class='row')
-							div(class='step col-sm-4')
-								div(class='step-number')
-									|1
-								div(class='step-content')
-									h4
-										|Link Accounts
-									p
-										|Link kurehun with your social media accounts. We currently support Flickr, Instagram, SoundCloud and Youtube.
-							div(class='step col-sm-4')
-								div(class='step-number')
-									|2
-								div(class='step-content')
-									h4
-										|Import Media
-									p
-										|Import content from your linked media accounts. You may opt to automatically sync content from your accounts.
-							div(class='step col-sm-4')
-								div(class='step-number')
-									|3
-								div(class='step-content')
-									h4
-										|Share Content
-									p
-										|Share your content under a Creative Commons license and voilà! You've helped keep the internet creative, free and open.
+									|Sign up

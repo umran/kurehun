@@ -9,7 +9,7 @@ ig.use({
 
 ig.use({ access_token: '373989785.e8d3c3b.5aa4a45b460a42f8b741b77542270270' })
 
-ig.user_media_recent('250934756', function(err, data, remaining, limit) {
+ig.user_media_recent('373989785', function(err, data, remaining, limit) {
 	if(err){
 		console.log(err)
 		return
