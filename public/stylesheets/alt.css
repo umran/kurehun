@@ -69,6 +69,14 @@ body {
 	color: #FFF;
 }
 
+.logo-text-alt {
+	text-align: center;
+	font-weight: 600;
+	line-height: 1.1875rem;
+	letter-spacing: -0.15rem; 
+	color: #333;
+}
+
 .hero {
 	color: #FFF;
 	padding: 14rem 0;
