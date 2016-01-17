@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 		username = profiles.instagram.username
 	}
 	
-	res.render('hello', { title: 'Kurehun', nav: 'Hello ' + username + '!' })
+	res.render('hello', { title: 'Kurehun', bg: 'no-bg-cover', nav: 'Hello ' + username + '!' })
 	
 })
 
