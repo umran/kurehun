@@ -33,6 +33,7 @@ module.exports = function(igConf){
 				//create instagram profile
 				var profile = {}
 
+				profile.service = 'instagram'
 				profile.id = result.user.id
 				profile.username = result.user.username
 				profile.fullname = result.user.full_name
@@ -43,8 +44,7 @@ module.exports = function(igConf){
 				profile.website = result.user.website
 				profile.profile_picture = result.user.profile_picture
 
-				//store in disk
-
+				//store on disk
 
 				//create profiles object in session if doesn't exist
 				if(!req.session.hello){

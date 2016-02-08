@@ -59,6 +59,7 @@ module.exports = function(fkConf){
 			//create flickr profile
 			var profile = {}
 			
+			profile.service = 'flickr'
 			profile.id = data.user_nsid
 			profile.username = data.username
 			profile.fullname = data.fullname
