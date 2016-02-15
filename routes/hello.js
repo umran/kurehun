@@ -3,23 +3,16 @@ var router = express.Router()
 
 /* Logged in endpoint. */
 router.get('/', function(req, res, next) {
-	/*if(!req.session.hello){
+	if(!req.session.hello){
 		res.redirect('/')
 		return
 	}
 	
 	var profiles = req.session.hello,
-	    username
+	    username = profiles.instagram.username,
+	    profile_picture = profiles.instagram.profile_picture
 	
-	if(profiles.flickr){
-		username = profiles.flickr.username
-	} else {
-		username = profiles.instagram.username
-	}*/
-	
-	var username = 'elemetrics'
-	
-	res.render('hello', { title: 'Kurehun', page: 'hello', nav: username })
+	res.render('hello', { title: 'Kurehun', page: 'hello', profile: { username: username, profile_picture: profile_picture } })
 	
 })
 

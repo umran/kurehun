@@ -12,8 +12,8 @@ block head
 					ul(class='nav navbar-nav pull-right')
 						li
 							a(href='#')
-								img(src='https://scontent.cdninstagram.com/t51.2885-19/11887177_520785871408117_940926046_a.jpg' height='32' width='32' class='profile-image avatar')
-								|<strong>#{nav}</strong> <i class='fa fa-chevron-down'></i>
+								img(src='#{profile.profile_picture}' height='32' width='32' class='profile-image avatar')
+								|<strong>#{profile.username}</strong> <i class='fa fa-chevron-down'></i>
 	nav(class='navbar navbar-default navbar-fixed-top navbar-authed-alt')
 		div(class='container')
 			div(class='row')
