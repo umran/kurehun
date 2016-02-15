@@ -6,7 +6,7 @@ var userSchema = new mongoose.Schema({
 	soundcloudid: {type: String, unique: true, required: false},
 	youtubeid: {type: String, unique: true, required: false},
 	username: {type: String, unique: true, required: true},
-	password: {type: String, unique: false, required: false},
+	password: {type: String, unique: false, required: true},
 	flickr: {type: Array, required: false},
 	instagram: {type: Array, required: false},
 	soundcloud: {type: Array, required: false},

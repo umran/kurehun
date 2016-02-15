@@ -1,106 +1,129 @@
 extends layout
 block head
-	nav(class='navbar navbar-default navbar-authed')
+	nav(class='navbar navbar-inverse navbar-fixed-top navbar-authed')
 		div(class='container')
 			div(class='row')
-				div(class='col-xs-2 col-md-1 nav-col')
-					div(class='navbar-header')							
+				div(class='col-xs-6 col-md-6 nav-col')
+					div(class='navbar-header')
 						a(class='navbar-brand')
 							span(class='logo-text-alt')
 								|kurehun
-				div(class='col-xs-4 col-md-5 nav-col')
-					div(class='form-group nav-search')
-						input(input type='text' class='form-control input-sm' placeholder='Search')
 				div(class='col-xs-6 col-md-6 nav-col')
 					ul(class='nav navbar-nav pull-right')
 						li
-							a(href='https://github.com/umran/haveerucrawler')= nav
+							a(href='#')
+								img(src='https://scontent.cdninstagram.com/t51.2885-19/11887177_520785871408117_940926046_a.jpg' height='32' width='32' class='profile-image avatar')
+								|<strong>#{nav}</strong> <i class='fa fa-chevron-down'></i>
+	nav(class='navbar navbar-default navbar-fixed-top navbar-authed-alt')
+		div(class='container')
+			div(class='row')
+				div(class='col-xs-4 col-md-4 nav-col')
+					ul(class='nav navbar-nav')
 						li
 							a(href='#')
-								|<i class="fa fa-globe"></i>
+								|Trending
 						li
 							a(href='#')
-								|<i class="fa fa-paw"></i>
-	.container(style='margin-top:10px;')
-		div(class='panel panel-default')
-			div(class='panel-body')
-				.col-xs-12.col-md-6
-					.panel.panel-default
-						.panel-image
-							img.panel-image-preview(src='https://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.ssl.cf1.rackcdn.com/unsplash_52d09387ae003_1.JPG')
-							label(for='toggle-1')
-						input#toggle-1.panel-image-toggle(type='checkbox')
-						.panel-body
-							h4 Title of Image
-							p
-								| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-						.panel-footer.text-center
-							a(href='#download')
-								span.glyphicon.glyphicon-download
-							a(href='#facebook')
-								span.fa.fa-facebook
-							a(href='#twitter')
-								span.fa.fa-twitter
-							a(href='#share')
-								span.glyphicon.glyphicon-share-alt
-				.col-xs-12.col-md-6
-					.panel.panel-default
-						.panel-image.hide-panel-body
-							img.panel-image-preview(src='https://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.ssl.cf1.rackcdn.com/unsplash_52cf9489095e8_1.JPG')
-							label(for='toggle-2')
-						input#toggle-2.panel-image-toggle(type='checkbox')
-						.panel-body
-							h4 Title of Image
-							p
-								| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-						.panel-footer.text-center
-							a(href='#download')
-								span.glyphicon.glyphicon-download
-							a(href='#facebook')
-								span.fa.fa-facebook
-							a(href='#twitter')
-								span.fa.fa-twitter
-							a(href='#share')
-								span.glyphicon.glyphicon-share-alt
-				.col-xs-12.col-md-6
-					.panel.panel-default
-						.panel-heading
-							h3.panel-title You can even have a Panel Title
-						.panel-image.hide-panel-body
-							img.panel-image-preview(src='https://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.ssl.cf1.rackcdn.com/unsplash_52c470899a2e1_1.JPG')
-							label(for='toggle-3')
-						input#toggle-3.panel-image-toggle(type='checkbox')
-						.panel-body
-							h4 Title of Image
-							p
-								| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-						.panel-footer.text-center
-							a(href='#download')
-								span.glyphicon.glyphicon-download
-							a(href='#facebook')
-								span.fa.fa-facebook
-							a(href='#twitter')
-								span.fa.fa-twitter
-							a(href='#share')
-								span.glyphicon.glyphicon-share-alt
-				.col-xs-12.col-md-6
-					.panel.panel-default
-						.panel-image
-							img.panel-image-preview(src='https://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.ssl.cf1.rackcdn.com/unsplash_52cd36aac6bed_1.JPG')
-							label(for='toggle-4')
-						input#toggle-4.panel-image-toggle(type='checkbox', checked='')
-						.panel-body
-							h4 Show the Description by default!
-							p
-								| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-						.panel-footer.text-center
-							a(href='#download')
-								span.glyphicon.glyphicon-download
-							a(href='#facebook')
-								span.fa.fa-facebook
-							a(href='#twitter')
-								span.fa.fa-twitter
-							a(href='#share')
-								span.glyphicon.glyphicon-share-alt
+								|Recent
+						li
+							a(href='#')
+								|Popular
+						li
+							a(href='#')
+								|More <i class='fa fa-chevron-down'></i>
+				div(class='col-xs-4 col-md-4 nav-col')
+					div(class='form-group nav-search')
+						input(input type='text' class='form-control input-sm input-search' placeholder='Search')
+				div(class='col-xs-4 col-md-4 nav-col')
+					ul(class='nav navbar-nav pull-right')
+						li
+							a(href='#')
+								|Following
+						li
+							a(href='#')
+								|Custom List <i class='fa fa-chevron-down'></i>
+						li
+							a(href='#' class='li-a-btn')
+								button(class='btn btn-success navbar-btn btn-sm li-btn')
+									|<i class='glyphicon glyphicon-share'></i> Share
+	.container
+		.col-xs-12.col-md-6.col-md-offset-3.post
+			.panel.panel-default
+				.panel-image
+					img.panel-image-preview(src='https://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.ssl.cf1.rackcdn.com/unsplash_52d09387ae003_1.JPG')
+					label(for='toggle-1')
+				input#toggle-1.panel-image-toggle(type='checkbox')
+				.panel-body
+					h4 Title of Image
+					p
+						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
+				.panel-footer.text-center
+					a(href='#download')
+						span.glyphicon.glyphicon-download
+					a(href='#facebook')
+						span.fa.fa-facebook
+					a(href='#twitter')
+						span.fa.fa-twitter
+					a(href='#share')
+						span.glyphicon.glyphicon-share-alt
+		.col-xs-12.col-md-6.col-md-offset-3.post
+			.panel.panel-default
+				.panel-image.hide-panel-body
+					img.panel-image-preview(src='https://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.ssl.cf1.rackcdn.com/unsplash_52cf9489095e8_1.JPG')
+					label(for='toggle-2')
+				input#toggle-2.panel-image-toggle(type='checkbox')
+				.panel-body
+					h4 Title of Image
+					p
+						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
+				.panel-footer.text-center
+					a(href='#download')
+						span.glyphicon.glyphicon-download
+					a(href='#facebook')
+						span.fa.fa-facebook
+					a(href='#twitter')
+						span.fa.fa-twitter
+					a(href='#share')
+						span.glyphicon.glyphicon-share-alt
+		.col-xs-12.col-md-6.col-md-offset-3.post
+			.panel.panel-default
+				.panel-heading
+					h3.panel-title You can even have a Panel Title
+				.panel-image.hide-panel-body
+					img.panel-image-preview(src='https://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.ssl.cf1.rackcdn.com/unsplash_52c470899a2e1_1.JPG')
+					label(for='toggle-3')
+				input#toggle-3.panel-image-toggle(type='checkbox')
+				.panel-body
+					h4 Title of Image
+					p
+						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
+				.panel-footer.text-center
+					a(href='#download')
+						span.glyphicon.glyphicon-download
+					a(href='#facebook')
+						span.fa.fa-facebook
+					a(href='#twitter')
+						span.fa.fa-twitter
+					a(href='#share')
+						span.glyphicon.glyphicon-share-alt
+		.col-xs-12.col-md-6.col-md-offset-3.post
+			.panel.panel-default
+				.panel-image
+					img.panel-image-preview(src='https://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.ssl.cf1.rackcdn.com/unsplash_52cd36aac6bed_1.JPG')
+					label(for='toggle-4')
+				input#toggle-4.panel-image-toggle(type='checkbox', checked='')
+				.panel-body
+					h4 Show the Description by default!
+					p
+						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
+				.panel-footer.text-center
+					a(href='#download')
+						span.glyphicon.glyphicon-download
+					a(href='#facebook')
+						span.fa.fa-facebook
+					a(href='#twitter')
+						span.fa.fa-twitter
+					a(href='#share')
+						span.glyphicon.glyphicon-share-alt
 block content
 block foot

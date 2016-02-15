@@ -5,11 +5,37 @@ module.exports = function(){
 
 	var self = this
 
+	this.new = function(method, profile, callback){
+
+		if(method === 'local'){
+			var username = profile.username,
+			    password = profile.password
+			
+			self.lookupUser(username, function(err, doc){
+				if(err){
+					callback(err)
+					return
+				}
+				
+				if(doc){
+					callback(null, 'Oops. Looks like ' + username + ' is already registered.')
+					return
+				}
+				
+				
+			})
+			
+		} else {
+			
+		}
+		
+	}
+
 	this.genUid = function(service, id){
 		
 		var hash = crypto.createHash('sha256')
 		
-		hash.update(service+id);
+		hash.update(service+id)
 		return hash.digest('hex')
 
 	}

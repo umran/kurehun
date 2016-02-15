@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 	
 	var username = 'elemetrics'
 	
-	res.render('hello', { title: 'Kurehun', bg: 'no-bg-cover', nav: username })
+	res.render('hello', { title: 'Kurehun', page: 'hello', nav: username })
 	
 })
 
