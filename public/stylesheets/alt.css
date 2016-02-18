@@ -332,3 +332,9 @@ body {
 .source {
 	padding: 7.5px 0px;
 }
+
+/* Feed */
+
+.feed {
+	padding-bottom: 30px;
+}
