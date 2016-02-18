@@ -49,81 +49,80 @@ block head
 	.container
 		.col-xs-12.col-md-6.col-md-offset-3.post
 			.panel.panel-default
+				.panel-heading
+					.row
+						.col-xs-6
+							.h3.panel-title
+								a(href='#')
+									img(src='#{profile.profile_picture}' height='32' width='32' class='profile-image avatar')
+									|#{profile.username}
+						.col-xs-6
+							.h3.panel-title.pull-right.source
+								a(href='#')
+									|<i class='fa fa-instagram'></i>
 				.panel-image
 					img.panel-image-preview(src='https://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.ssl.cf1.rackcdn.com/unsplash_52d09387ae003_1.JPG')
-					label(for='toggle-1')
-				input#toggle-1.panel-image-toggle(type='checkbox')
 				.panel-body
 					h4 Title of Image
 					p
 						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-				.panel-footer.text-center
-					a(href='#download')
-						span.glyphicon.glyphicon-download
-					a(href='#facebook')
-						span.fa.fa-facebook
-					a(href='#twitter')
-						span.fa.fa-twitter
-					a(href='#share')
-						span.glyphicon.glyphicon-share-alt
-		.col-xs-12.col-md-6.col-md-offset-3.post
-			.panel.panel-default
-				.panel-image.hide-panel-body
-					img.panel-image-preview(src='https://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.ssl.cf1.rackcdn.com/unsplash_52cf9489095e8_1.JPG')
-					label(for='toggle-2')
-				input#toggle-2.panel-image-toggle(type='checkbox')
-				.panel-body
-					h4 Title of Image
-					p
-						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-				.panel-footer.text-center
-					a(href='#download')
-						span.glyphicon.glyphicon-download
-					a(href='#facebook')
-						span.fa.fa-facebook
-					a(href='#twitter')
-						span.fa.fa-twitter
-					a(href='#share')
-						span.glyphicon.glyphicon-share-alt
 		.col-xs-12.col-md-6.col-md-offset-3.post
 			.panel.panel-default
 				.panel-heading
-					h3.panel-title You can even have a Panel Title
-				.panel-image.hide-panel-body
-					img.panel-image-preview(src='https://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.ssl.cf1.rackcdn.com/unsplash_52c470899a2e1_1.JPG')
-					label(for='toggle-3')
-				input#toggle-3.panel-image-toggle(type='checkbox')
+					.row
+						.col-xs-6
+							.h3.panel-title
+								a(href='#')
+									img(src='#{profile.profile_picture}' height='32' width='32' class='profile-image avatar')
+									|#{profile.username}
+						.col-xs-6
+							.h3.panel-title.pull-right.source
+								a(href='#')
+									|<i class='fa fa-youtube'></i>
+				.panel-image
+					.videoWrapper
+						iframe(id='ytplayer' type='text/html' width='560' height='315' src='https://www.youtube.com/embed/efRTW3aImR4' frameborder='0' allowfullscreen)
 				.panel-body
 					h4 Title of Image
 					p
 						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-				.panel-footer.text-center
-					a(href='#download')
-						span.glyphicon.glyphicon-download
-					a(href='#facebook')
-						span.fa.fa-facebook
-					a(href='#twitter')
-						span.fa.fa-twitter
-					a(href='#share')
-						span.glyphicon.glyphicon-share-alt
 		.col-xs-12.col-md-6.col-md-offset-3.post
 			.panel.panel-default
+				.panel-heading
+					.row
+						.col-xs-6
+							.h3.panel-title
+								a(href='#')
+									img(src='#{profile.profile_picture}' height='32' width='32' class='profile-image avatar')
+									|#{profile.username}
+						.col-xs-6
+							.h3.panel-title.pull-right.source
+								a(href='#')
+									|<i class='fa fa-soundcloud'></i>
+				.panel-image
+					iframe(width='100%' height='450' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/194033984&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true')
+				.panel-body
+					h4 Title of Image
+					p
+						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
+		.col-xs-12.col-md-6.col-md-offset-3.post
+			.panel.panel-default
+				.panel-heading
+					.row
+						.col-xs-6
+							.h3.panel-title
+								a(href='#')
+									img(src='#{profile.profile_picture}' height='32' width='32' class='profile-image avatar')
+									|#{profile.username}
+						.col-xs-6
+							.h3.panel-title.pull-right.source
+								a(href='#')
+									|<i class='fa fa-flickr'></i>
 				.panel-image
 					img.panel-image-preview(src='https://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.ssl.cf1.rackcdn.com/unsplash_52cd36aac6bed_1.JPG')
-					label(for='toggle-4')
-				input#toggle-4.panel-image-toggle(type='checkbox', checked='')
 				.panel-body
 					h4 Show the Description by default!
 					p
 						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-				.panel-footer.text-center
-					a(href='#download')
-						span.glyphicon.glyphicon-download
-					a(href='#facebook')
-						span.fa.fa-facebook
-					a(href='#twitter')
-						span.fa.fa-twitter
-					a(href='#share')
-						span.glyphicon.glyphicon-share-alt
 block content
 block foot
