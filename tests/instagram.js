@@ -17,12 +17,3 @@ ig.user_media_recent('373989785', function(err, data, remaining, limit) {
 	
 	console.log(data[0])
 })
-
-ig.user_media_recent('373989785', function(err, data, remaining, limit) {
-	if(err){
-		console.log(err)
-		return
-	}
-	
-	console.log(data[0])
-})
