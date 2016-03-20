@@ -8,19 +8,47 @@ block head
 						a(class='navbar-brand')
 							span(class='logo-text')
 								|kurehun
+							//img(class='logo' src='/graphics/logo/kurehun.svg')
 				div(class='col-xs-6 nav-col')
-					button(class='btn btn-warning navbar-btn btn-sm pull-right')
-						|Sign up
+					form(class='form-inline pull-right')
+						div(class='form-group inline-input')
+							input(type='email' class='input-sm form-control login-form' id='login_email' placeholder='Email')
+						div(class='form-group inline-input')
+							input(type='password' class='input-sm form-control login-form' id='login_password' placeholder='Password')
+						button(type='submit' class='btn btn-success navbar-btn btn-sm')
+							|Login
 block content
 	div(class='hero')
 		div(class='container')
 			div(class='row')
-				div(class='col-xs-12')
+				div(class='col-sm-offset-3 col-sm-6 col-xs-12')
 					div(class='row')
-						div(class='col-sm-offset-4 col-sm-4 col-xs-12 form-name')
-							h1(class='logo-text')
-								|kurehun
-					form(class='form-horizontal login')
+						div(class='col-xs-offset-2 col-xs-10 form-name')
+							h1()
+								|Sign up
+
+					div(class='form-horizontal login')
+						div(class='form-group')
+							label(for='email' class='col-xs-2 control-label')
+								|Email
+							div(class='col-xs-10')
+								input(type='email' class='form-control login-form' id='email' placeholder='Email')
+						div(class='form-group')
+							label(for='password' class='col-xs-2 control-label')
+								|Password
+							div(class='col-xs-10')
+								input(type='email' class='form-control login-form' id='password' placeholder='Password')
+						div(class='form-group')
+							label(for='cpassword' class='col-xs-2 control-label')
+								|Confirm
+							div(class='col-xs-10')
+								input(type='email' class='form-control login-form' id='cpassword' placeholder='Confirm Password')
+						div(class='form-group')
+							div(class='col-xs-offset-2 col-xs-10')
+								button(type='submit' class='btn btn-warning')
+									|Sign up
+
+					//form(class='form-horizontal login')
 						div(class='form-group')
 							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
 								input(input type='text' class='form-control login-form' id='username' placeholder='@')
@@ -36,28 +64,14 @@ block content
 								a(class='btn btn-primary btn-block' href='/auth/instagram')
 									|<i class='fa fa-instagram'></i> Instagram
 					//div(class='row form-next')
-						div(class='col-sm-offset-4 col-sm-4 col-xs-12 form-name')
+						div(class='col-sm-4 col-xs-12 form-name')
 							h3(class='form-name-text')
 								|Sign up
-					//form(class='form-horizontal login')
-						div(class='form-group')
-							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
-								input(input type='text' class='form-control login-form' id='username' placeholder='username')
-						div(class='form-group')
-							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
-								input(input type='password' class='form-control login-form' id='password' placeholder='password')
-						div(class='form-group')
-							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
-								input(input type='password' class='form-control login-form' id='password' placeholder='confirm password')
-						div(class='form-group')
-							div(class='col-sm-offset-4 col-sm-4 col-xs-12')
-								button(type='submit' class='btn btn-warning')
-									|Sign up
 block foot
 	footer(class='footer')
 		div(class='container')
 			div(class='row')
 				div(class='col-xs-8')
-					|For everyone with lots of <i class='twa twa-heart'></i>️ from the team at kurehun
+					|Made in Malé with lots of <i class='twa twa-heart'></i>️
 				div(class='col-xs-4')
 					i(class='licence-footer cc cc-publicdomain pull-right')

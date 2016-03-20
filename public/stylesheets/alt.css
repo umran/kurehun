@@ -11,7 +11,7 @@ body {
 
 #landing {
 	margin-bottom: 4rem;
-	background: url('/graphics/hr.jpg') no-repeat center center fixed;
+	background: url('/graphics/nasa.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -31,7 +31,7 @@ body {
 }
 
 .bg-cover {
-	background: url('/graphics/hr.jpg') no-repeat center center fixed;
+	background: url('/graphics/nasa.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -63,7 +63,7 @@ body {
 .navbar-inverse {
 	border-radius: 0;
 	color: #fff;
-	background-color: #083D61;
+	background-color: #217BB9;
 	background-image: none;
 }
 
@@ -137,7 +137,7 @@ body {
 .logo-text {
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 	text-align: center;
-	font-weight: 600;
+	font-weight: 400;
 	line-height: 1.1875rem;
 	letter-spacing: -0.15rem; 
 	color: #FFF;
@@ -145,10 +145,14 @@ body {
 
 .logo-text-alt {
 	text-align: center;
-	font-weight: 600;
+	font-weight: 400;
 	line-height: 1.1875rem;
 	letter-spacing: -0.15rem; 
 	color: #FFF;
+}
+
+.inline-input {
+	padding-right: 5px;
 }
 
 .hero {
@@ -175,6 +179,10 @@ body {
 
 .hero h3 {
 	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero label {
+	    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .no-padding {
@@ -337,4 +345,9 @@ body {
 
 .feed {
 	padding-bottom: 30px;
+}
+
+.navbar-brand>img{
+	height:32px;
+	width:65px;
 }
