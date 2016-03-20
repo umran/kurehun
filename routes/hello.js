@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 	var username = 'elemetrics'
 	var profile_picture = 'https://scontent.cdninstagram.com/t51.2885-19/11887177_520785871408117_940926046_a.jpg'
 	
-	res.render('hello', { title: 'Kurehun', page: 'hello', profile: { username: username, profile_picture: profile_picture } })
+	res.render('hello', { title: 'Kurehun', page: 'hello', screen: '', profile: { username: username, profile_picture: profile_picture } })
 })
 
 module.exports = router
