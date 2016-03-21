@@ -2,8 +2,8 @@ body.unresponsive {
   min-width: 960px;
 }
 body.unresponsive .container {
-  max-width: none !important;
-  width: 960px !important;
+  max-width: none;
+  width: 960px;
 }
 body.unresponsive [class^="col-"] {
   float: left;
