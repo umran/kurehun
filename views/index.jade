@@ -1,5 +1,14 @@
 extends layout
 block head
+	script.
+		var bgImg = "#{bgImg}";
+		(function(){
+			console.log(bgImg);
+			function setBg(){
+				$('body').css('background', 'url('+bgImg+') no-repeat center center fixed');
+			}
+			setBg();
+		})();
 	nav(class='navbar navbar-default navbar-unauthed')
 		div(class='container')
 			div(class='row')

@@ -12,7 +12,7 @@ body {
 
 #landing {
 	margin-bottom: 4rem;
-	background: url('/graphics/earth/google-earth-view-5616.jpg') no-repeat center center fixed;
+	/*background: url('/graphics/earth/google-earth-view-5616.jpg') no-repeat center center fixed;*/
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
