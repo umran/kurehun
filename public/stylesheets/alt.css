@@ -335,5 +335,5 @@ body {
 }
 
 @media (min-width: @screen-lg-min){
-	width: 1170px;
+	width: 1170px !important;
 }
