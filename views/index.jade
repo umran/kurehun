@@ -10,13 +10,13 @@ block head
 								|kurehun
 							//img(class='logo' src='/graphics/logo/kurehun.svg')
 				div(class='col-xs-6 nav-col')
-					form(class='form-inline pull-right')
+					button(type='submit' class='btn btn-success navbar-btn btn-sm pull-right')
+						|Sign in
+					form(class='form-inline form-nav pull-right')
 						div(class='form-group inline-input')
 							input(type='email' class='input-sm form-control login-input' id='login_email' placeholder='Email')
 						div(class='form-group inline-input')
 							input(type='password' class='input-sm form-control login-input' id='login_password' placeholder='Password')
-						button(type='submit' class='btn btn-success navbar-btn btn-sm')
-							|Sign in
 block content
 	div(class='hero')
 		div(class='container')
@@ -37,20 +37,20 @@ block content
 							//label(for='email' class='col-xs-2 control-label')
 								|Email
 							div(class='col-xs-offset-2 col-xs-10')
-								input(type='email' class='form-control signup-input' id='email' placeholder='Email')
+								input(type='email' class='form-control signup-input' id='email' placeholder='Email' disabled)
 						div(class='form-group')
 							//label(for='password' class='col-xs-2 control-label')
 								|Password
 							div(class='col-xs-offset-2 col-xs-10')
-								input(type='email' class='form-control signup-input' id='password' placeholder='Password')
+								input(type='email' class='form-control signup-input' id='password' placeholder='Password' disabled)
 						div(class='form-group')
 							//label(for='cpassword' class='col-xs-2 control-label')
 								|Confirm
 							div(class='col-xs-offset-2 col-xs-10')
-								input(type='email' class='form-control signup-input' id='cpassword' placeholder='Confirm Password')
+								input(type='email' class='form-control signup-input' id='cpassword' placeholder='Confirm Password' disabled)
 						div(class='row')
 							div(class='col-xs-offset-2 col-xs-10')
-								button(type='submit' class='btn btn-warning btn-block')
+								button(type='submit' class='btn btn-warning btn-block disabled')
 									|Sign up
 block foot
 	footer(class='footer')

@@ -25,12 +25,6 @@ body {
 	background-color: #fafafa;
 }
 
-@media (max-width: 768px) and (orientation: portrait) {
-	body {
-	    margin-bottom: 6rem;
-	}
-}
-
 .navbar {
     	margin-bottom: 0;
     	border: none;
@@ -145,24 +139,12 @@ body {
 .inline-input {
 	display: inline-block;
 	padding-right: 5px;
+	margin-bottom: 0;
 }
 
 .hero {
 	color: #FFF;
 	padding: 14rem 0;
-}
-
-@media (max-width: 768px) {
-	.hero {
-	    padding-top: 6rem;
-	    padding-bottom: 9rem;
-	}
-}
-
-@media (max-width: 768px) {
-	.hero h1 {
-		text-align: center;
-	}
 }
 
 .hero h1, .hero h2, .hero h3, .hero label {
@@ -185,6 +167,11 @@ body {
 .login-input, .signup-input {
 	border: 0px solid #ccc;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.form-nav {
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .form-name-text {
@@ -321,6 +308,7 @@ body {
 	padding-bottom: 56.25%;
 	height: 0;
 }
+
 .videoWrapper iframe {
 	position: absolute;
 	top: 0;
