@@ -5,7 +5,7 @@ block head
 		(function(){
 			console.log(bgImg);
 			function setBg(){
-				$('body').css('background', 'url('+bgImg+') no-repeat center center fixed');
+				$('body').css('background', 'linear-gradient(rgba(24, 24, 25, 0.30), rgba(24, 24, 25, 0.30)), url('+bgImg+') no-repeat center center fixed');
 			}
 			setBg();
 		})();
@@ -46,27 +46,27 @@ block content
 							//label(for='email' class='col-xs-2 control-label')
 								|Email
 							div(class='col-xs-offset-2 col-xs-10')
-								input(type='email' class='form-control signup-input' id='email' placeholder='Email' disabled)
+								input(type='email' class='form-control signup-input' id='email' placeholder='Email')
 						div(class='form-group')
 							//label(for='password' class='col-xs-2 control-label')
 								|Password
 							div(class='col-xs-offset-2 col-xs-10')
-								input(type='email' class='form-control signup-input' id='password' placeholder='Password' disabled)
+								input(type='email' class='form-control signup-input' id='password' placeholder='Password')
 						div(class='form-group')
 							//label(for='cpassword' class='col-xs-2 control-label')
 								|Confirm
 							div(class='col-xs-offset-2 col-xs-10')
-								input(type='email' class='form-control signup-input' id='cpassword' placeholder='Confirm Password' disabled)
+								input(type='email' class='form-control signup-input' id='cpassword' placeholder='Confirm Password')
 						div(class='row')
 							div(class='col-xs-offset-2 col-xs-10')
-								button(type='submit' class='btn btn-warning btn-block disabled')
+								button(type='submit' class='btn btn-warning btn-block')
 									|Sign up
 block foot
 	footer(class='footer')
 		div(class='container footer-content')
 			div(class='row')
 				div(class='col-xs-8')
-					|Made in Malé with lots of <i class='twa twa-heart'></i>️
+					|Made in Malé with all the <i class='twa twa-heart'></i>️ in the world
 				div(class='col-xs-4')
 					img(src='https://earthview.withgoogle.com/static/images/google-earth-logo@2x.png' alt='Google' class='content__attribution__image pull-right')
 					//i(class='licence-footer cc cc-publicdomain pull-right')
