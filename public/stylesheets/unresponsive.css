@@ -1,9 +1,9 @@
 body.unresponsive {
-  min-width: 960px;
+  min-width: 960px !important;
 }
 body.unresponsive .container {
-  max-width: none;
-  width: 960px;
+  max-width: none !important;
+  width: 960px !important;
 }
 body.unresponsive [class^="col-"] {
   float: left;
@@ -276,5 +276,5 @@ body.unresponsive .css3-background .head {
 body.unresponsive .css3-background .head,
 body.unresponsive .css3-background .head-bar,
 body.unresponsive .css3-background .main-balls-section {
-  min-width: 960px!important;
+  min-width: 960px !important;
 }

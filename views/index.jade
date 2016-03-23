@@ -5,7 +5,7 @@ block head
 		(function(){
 			console.log(bgImg);
 			function setBg(){
-				$('body').css('background', 'linear-gradient(rgba(24, 24, 25, 0.30), rgba(24, 24, 25, 0.30)), url('+bgImg+') no-repeat center center fixed');
+				$('body').css('background', 'linear-gradient(rgba(0,0,0,0.4) 0%,rgba(0,0,0,.6) 75%,rgba(0,0,0,.8) 100%), url('+bgImg+') no-repeat center center fixed');
 			}
 			setBg();
 		})();
@@ -51,12 +51,12 @@ block content
 							//label(for='password' class='col-xs-2 control-label')
 								|Password
 							div(class='col-xs-offset-2 col-xs-10')
-								input(type='email' class='form-control signup-input' id='password' placeholder='Password')
+								input(type='password' class='form-control signup-input' id='password' placeholder='Password')
 						div(class='form-group')
 							//label(for='cpassword' class='col-xs-2 control-label')
 								|Confirm
 							div(class='col-xs-offset-2 col-xs-10')
-								input(type='email' class='form-control signup-input' id='cpassword' placeholder='Confirm Password')
+								input(type='password' class='form-control signup-input' id='cpassword' placeholder='Confirm Password')
 						div(class='row')
 							div(class='col-xs-offset-2 col-xs-10')
 								button(type='submit' class='btn btn-warning btn-block')
