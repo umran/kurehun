@@ -1,15 +1,6 @@
 extends layout
-block head
-	script.
-		var bgImg = "#{bgImg}";
-		(function(){
-			console.log(bgImg);
-			function setBg(){
-				$('body').css('background', 'linear-gradient(rgba(0,0,0,0.4) 0%,rgba(0,0,0,.6) 75%,rgba(0,0,0,.8) 100%), url('+bgImg+') no-repeat center center fixed');
-			}
-			setBg();
-		})();
-	nav(class='navbar navbar-default navbar-unauthed')
+block content
+	nav(class='navbar navbar-default navbar-fixed-top navbar-unauthed')
 		div(class='container')
 			div(class='row')
 				div(class='col-xs-6 nav-col')
@@ -26,16 +17,19 @@ block head
 							input(type='email' class='input-sm form-control login-input' id='login_email' placeholder='Email')
 						div(class='form-group inline-input')
 							input(type='password' class='input-sm form-control login-input' id='login_password' placeholder='Password')
-block content
-	div(class='hero')
+	div(class='hero' id='hero')
 		div(class='container')
 			div(class='row')
-				div(class='col-xs-6')
-					h1()
+				div(class='col-xs-offset-3 col-xs-6')
+					h1(class='header')
 						|Share and Connect with a Community of Artists
-					h3()
-								|Kurehun is a place to showcase your work, and perhaps even draw some inspiration from fellow makers
-				div(class='col-xs-6')
+					h3(class='header')
+								|Showcase and license your work to those poised to make the best use of it
+				div(class='col-xs-offset-3 col-xs-6')
+					div(class='form-horizontal login')
+						div(class='col-xs-offset-2 col-xs-8')
+							|<input type='text' class='form-control search-input' id='search' placeholder=' &#xf002;	Search Kurehun'></input>
+				//div(class='col-xs-6')
 					//div(class='row')
 						div(class='col-xs-offset-2 col-xs-10 form-name')
 							h2()
@@ -61,7 +55,10 @@ block content
 							div(class='col-xs-offset-2 col-xs-10')
 								button(type='submit' class='btn btn-warning btn-block')
 									|Sign up
-block foot
+	div(class='container feed')
+			div(class='row')
+				div(id='pinBoot')
+					include ./static/grid2.html
 	footer(class='footer')
 		div(class='container footer-content')
 			div(class='row')
@@ -70,3 +67,13 @@ block foot
 				div(class='col-xs-4')
 					img(src='https://earthview.withgoogle.com/static/images/google-earth-logo@2x.png' alt='Google' class='content__attribution__image pull-right')
 					//i(class='licence-footer cc cc-publicdomain pull-right')
+	script(type='text/javascript', src='/javascript/scripts/feed.js')
+	script.
+		var bgImg = "#{bgImg}";
+		(function(){
+			console.log(bgImg);
+			function setBg(){
+				$('.hero').css('background', 'linear-gradient(rgba(0,0,0,0.4) 0%,rgba(0,0,0,.6) 75%,rgba(0,0,0,.8) 100%), url('+bgImg+') no-repeat center center fixed');
+			}
+			setBg();
+		})();

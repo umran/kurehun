@@ -1,4 +1,4 @@
-var crypto = require("crypto")
+var crypto = require('crypto')
 var request = require('request')
 
 module.exports = function(consumerKey, consumerSecret, redirectUri) {

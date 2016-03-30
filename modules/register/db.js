@@ -1,4 +1,4 @@
-var config = require('../config').mongodb
+var config = require('../../config').mongodb
     mongoose = require('mongoose')
 
 //connect to mongodb

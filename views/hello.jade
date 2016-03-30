@@ -1,6 +1,6 @@
 extends layout
-block head
-	nav(class='navbar navbar-inverse navbar-fixed-top navbar-authed')
+block content
+	//nav(class='navbar navbar-inverse navbar-fixed-top navbar-authed')
 		div(class='container')
 			div(class='row')
 				div(class='col-xs-6 col-md-6 nav-col')
@@ -18,7 +18,11 @@ block head
 		div(class='container')
 			div(class='row')
 				div(class='col-xs-4 col-md-4 nav-col')
-					ul(class='nav navbar-nav')
+					div(class='navbar-header')
+						a(class='navbar-brand')
+							span(class='logo-text-alt')
+								|kurehun
+					ul(class='nav navbar-nav navbar-primary')
 						li
 							a(href='#')
 								|Trending
@@ -28,24 +32,25 @@ block head
 						li
 							a(href='#')
 								|Popular
-						li
+						//li
 							a(href='#')
 								|More <i class='fa fa-chevron-down'></i>
 				div(class='col-xs-4 col-md-4 nav-col')
 					div(class='form-group nav-search')
 						input(input type='text' class='form-control input-sm input-search' placeholder='Search')
 				div(class='col-xs-4 col-md-4 nav-col')
-					ul(class='nav navbar-nav pull-right')
-						li
+					ul(class='nav navbar-nav navbar-secondary pull-right')
+						li(class='menu')
 							a(href='#')
-								|Following
-						li
-							a(href='#')
-								|Custom List <i class='fa fa-chevron-down'></i>
+								|More <i class='fa fa-chevron-down'></i>
 						li
 							a(href='#' class='li-a-btn')
 								button(class='btn btn-success navbar-btn btn-sm li-btn')
 									|<i class='glyphicon glyphicon-share'></i> Share
+						li
+							a(href='#')
+								img(src='#{profile.profile_picture}' height='32' width='32' class='profile-image avatar')
+								|#{profile.username}
 	container(class='feed')
 		.col-xs-12.col-md-6.col-md-offset-3.post
 			.panel.panel-default
@@ -100,7 +105,7 @@ block head
 								a(href='#')
 									|<i class='fa fa-soundcloud'></i>
 				.panel-image
-					iframe(width='100%' height='450' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/193007970&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true')
+					iframe(width='100%' height='315' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/193007970&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true')
 				.panel-body
 					h4 Title of Image
 					p
@@ -124,5 +129,3 @@ block head
 					h4 Show the Description by default!
 					p
 						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-block content
-block foot

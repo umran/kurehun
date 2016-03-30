@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-var flickrAuth = require('../../utils/flickr-auth')
+var flickrAuth = require('../../modules/utils/flickr-auth')
 
 module.exports = function(fkConf){
 

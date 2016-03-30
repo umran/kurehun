@@ -1,33 +1,27 @@
 var crypto = require('crypto')
-    User = require('../models/users')
+    User = require('../../models/users')
 
 module.exports = function(){
 
 	var self = this
 
 	this.new = function(method, profile, callback){
-
-		if(method === 'local'){
-			var username = profile.username,
-			    password = profile.password
+		var username = profile.email,
+		    password = profile.password
+		
+		self.lookupUser(email, function(err, doc){
+			if(err){
+				callback(err)
+				return
+			}
 			
-			self.lookupUser(username, function(err, doc){
-				if(err){
-					callback(err)
-					return
-				}
-				
-				if(doc){
-					callback(null, 'Oops. Looks like ' + username + ' is already registered.')
-					return
-				}
-				
-				
-			})
+			if(doc){
+				callback(null, 'Oops. Looks like ' + username + ' is already registered.')
+				return
+			}
 			
-		} else {
 			
-		}
+		})
 		
 	}
 
